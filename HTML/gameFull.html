@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="myCSS.css" />
+    <link rel="stylesheet" href="..\Styles\myCSS.css" />
 </head>
 
 <body>
@@ -44,11 +44,11 @@
     <!-- Work Area-->
     <div class="container">
         <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
+            <h2 data-bind="text:Name()"></h2>
         </div>
         <!-- ko if:Name().length > 0 -->
         <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Id</div>
+            <div class="col-2">Game Id</div>
             <div class="col-10" data-bind="text: Id"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
@@ -56,26 +56,6 @@
             <div class="col-10" data-bind="text: Name"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Sex</div>
-            <div class="col-10" data-bind="text: Sex"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" id="Height">
-            <div class="col-2">Height</div>
-            <div class="col-10" data-bind="text: Height() + ' cm'"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1 " id="Weight">
-            <div class="col-2">Weight</div>
-            <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" id="Olympedia">
-            <div class="col-2">Olympedia Link</div>
-            <div class="col-10" data-bind="text: Url"></div>
-        </div>
-
-
-
-
-        <!-- <div class="row border-bottom mx-0  my-1">
             <div class="col-2">Country Name</div>
             <div class="col-10" data-bind="text: CountryName"></div>
         </div>
@@ -83,6 +63,66 @@
             <div class="col-2">Season</div>
             <div class="col-10" data-bind="text: Season"></div>
         </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger btn-lg btn-modal" data-bs-toggle="modal" data-bs-target="#modalId">
+            Athletes
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Athletes</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="table-responsive">
+                                <table class="table ">
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Sex</th>
+                                            <th scope="col" class="text-right"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach: Athletes">
+                                        <tr>
+                                            <td class="align-middle" data-bind="text:Id"></td>
+                                            <td class="align-middle" data-bind="text:Name"></td>
+                                            <td class="align-middle" data-bind="text:Sex"></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var modalId = document.getElementById('modalId');
+
+            modalId.addEventListener('show.bs.modal', function (event) {
+                // Button that triggered the modal
+                let button = event.relatedTarget;
+                // Extract info from data-bs-* attributes
+                let recipient = button.getAttribute('data-bs-whatever');
+
+                // Use above variables to manipulate the DOM
+            });
+        </script>
+
         <div class="row border-bottom mx-0  my-1">
             <div class="col-2">Year</div>
             <div class="col-10" data-bind="text: Year"></div>
@@ -94,7 +134,7 @@
                 [<a class="link-dark text-decoration-none" data-bind="attr: { href: Logo }, text: Logo"
                     target="_blank"></a>]
             </div>
-        </div> -->
+        </div>
         <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
             <div class="col-2">Photo</div>
             <div class="small col-10">
@@ -141,7 +181,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="athletesDetails.js"></script>
+    <script src="..\Scripts\gamesFull.js"></script>
 </body>
 
 </html>

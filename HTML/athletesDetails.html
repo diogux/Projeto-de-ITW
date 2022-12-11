@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="myCSS.css" />
+    <link rel="stylesheet" href="..\Styles\myCSS.css" />
 </head>
 
 <body>
@@ -48,7 +48,7 @@
         </div>
         <!-- ko if:Name().length > 0 -->
         <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Game Id</div>
+            <div class="col-2">Id</div>
             <div class="col-10" data-bind="text: Id"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
@@ -56,6 +56,26 @@
             <div class="col-10" data-bind="text: Name"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
+            <div class="col-2">Sex</div>
+            <div class="col-10" data-bind="text: Sex"></div>
+        </div>
+        <div class="row border-bottom mx-0  my-1" id="Height">
+            <div class="col-2">Height</div>
+            <div class="col-10" data-bind="text: Height() + ' cm'"></div>
+        </div>
+        <div class="row border-bottom mx-0  my-1 " id="Weight">
+            <div class="col-2">Weight</div>
+            <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
+        </div>
+        <div class="row border-bottom mx-0  my-1" id="Olympedia">
+            <div class="col-2">Olympedia Link</div>
+            <div class="col-10" data-bind="text: Url"></div>
+        </div>
+
+
+
+
+        <!-- <div class="row border-bottom mx-0  my-1">
             <div class="col-2">Country Name</div>
             <div class="col-10" data-bind="text: CountryName"></div>
         </div>
@@ -74,7 +94,7 @@
                 [<a class="link-dark text-decoration-none" data-bind="attr: { href: Logo }, text: Logo"
                     target="_blank"></a>]
             </div>
-        </div>
+        </div> -->
         <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
             <div class="col-2">Photo</div>
             <div class="small col-10">
@@ -121,7 +141,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="gameDetails.js"></script>
+    <script src="..\Scripts\athletesDetails.js"></script>
 </body>
 
 </html>

@@ -14,6 +14,8 @@ var vm = function () {
     self.totalRecords = ko.observable(50);
     self.hasPrevious = ko.observable(false);
     self.hasNext = ko.observable(false);
+    self.Search = ko.observable('');
+
     self.previousPage = ko.computed(function () {
         return self.currentPage() * 1 - 1;
     }, self);
@@ -40,8 +42,14 @@ var vm = function () {
 
         for (var i = 1; i <= size; i++)
             list.push(i + step);
-        return list;
-    };
+        return list; };
+
+    // make a search bar to filter the list using the api
+
+
+
+
+   
 
     //--- Page Events
     self.activate = function (id) {
