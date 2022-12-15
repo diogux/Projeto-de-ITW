@@ -50,14 +50,8 @@
             <h2 data-bind="text:displayName"></h2>
         </div>
         <!-- ko if:records().length > 0 -->
-        <br>
-        <br>
-        <h1>tenho que fazer isto ainda (n ta a funcionar)</h1>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
+        
+        
 
 
 
@@ -107,7 +101,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Photo</th>
+                    <th style="padding-left: 30px" scope="col">Photo</th>
                     <th scope="col">Modality</th>
                     <th scope="col">Results</th>
                     <th scope="col" class="text-right"></th>
@@ -117,7 +111,9 @@
                 <tr>
                     <td class="align-middle" data-bind="text:Id"></td>
                     <td class="align-middle" data-bind="text:Name"></td>
-                    <td class="align-middle" data-bind="text:Photo"></td>
+                    <td><img class="competitions-img" 
+                        data-bind="attr:{src: Photo}">
+                </td>
                     <td class="align-middle" data-bind="text:Modality"></td>
                     <td class="align-middle" data-bind="text:Results"></td>
                     <td class="text-end">

@@ -65,3 +65,9 @@ font-size: 0.85rem;
 }
 
 
+.competitions-img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    justify-content: left;
+}
