@@ -100,7 +100,9 @@
                     <td class="align-middle" data-bind="text:Id"></td>
                     <td class="align-middle" data-bind="text:Name"></td>
                     <td class="align-middle" data-bind="text:IOC"></td>
-                    <td><img class="flag" data-bind="attr:{src: Flag}"></td>
+                    <td><img class="flag"
+                            data-bind="attr:{src: Flag}, event : { mouseover: $parent.flagMouseOver, mouseout: $parent.flagMouseOut}">
+                    </td>
                     <td class="text-end">
                         <a class="btn btn-default btn-light btn-xs"
                             data-bind="attr: { href:'./gameDetails.html?id=' + Id }">
@@ -121,7 +123,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        <img src="../images/Olympic_rings.svg" height="30" /> Loading data...
+                        <img src="../images/Olympic_rings.svg" height="30" /> Loading all the data...
                     </h5>
                 </div>
                 <div class="modal-body text-center">

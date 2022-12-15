@@ -42,7 +42,14 @@ var vm = function () {
             list.push(i + step);
         return list;
     };
-
+    self.flagMouseOver = function (data, event) {  
+        console.log("----> mouseOver");
+        $(event.target).css("transform", "scale(1.5)");
+    };
+    self.flagMouseOut = function (data, event) {  
+        console.log("----> mouseOut");
+        $(event.target).css("transform", "scale(1.0)");
+    };
     //--- Page Events
     self.activate = function (id) {
         console.log('CALL: getGames...');
@@ -110,6 +117,11 @@ var vm = function () {
         }
     };
 
+
+
+
+
+
     //--- start ....
     showLoading();
     var pg = getUrlParameter('page');
@@ -125,6 +137,8 @@ var vm = function () {
 $(document).ready(function () {
     console.log("ready!");
     ko.applyBindings(new vm());
+
+
 });
 
 $(document).ajaxComplete(function (event, xhr, options) {
