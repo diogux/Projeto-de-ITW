@@ -14,6 +14,7 @@ var vm = function () {
     self.totalRecords = ko.observable(50);
     self.hasPrevious = ko.observable(false);
     self.hasNext = ko.observable(false);
+    self.Photo = ko.observable('');
     self.previousPage = ko.computed(function () {
         return self.currentPage() * 1 - 1;
     }, self);
@@ -61,6 +62,9 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
+            self.Photo(data.Photo)
+            //if (data.Photo == null)
+              //  $(".cardImage").attr("src", "../images/jsp.png");
             //self.SetFavourites();
         });
     };
