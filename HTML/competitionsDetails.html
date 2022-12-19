@@ -75,6 +75,9 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Country</th>
 
                     <th scope="col" class="text-right"></th>
                 </tr>
@@ -83,6 +86,9 @@
                 <tr>
                     <td class="align-middle" data-bind="text:Id"></td>
                     <td class="align-middle" data-bind="text:Name"></td>
+                    <td class="align-middle" data-bind="text:Year"></td>
+                    <td class="align-middle" data-bind="text:CityName"></td>
+                    <td class="align-middle" data-bind="text:CountryName"></td>
                     <td class="text-end">
                         <a class="btn btn-default btn-light btn-xs"
                             data-bind="attr: { href:'./athletesDetails.html?id=' + Id }">
