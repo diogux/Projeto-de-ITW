@@ -63,8 +63,8 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             self.Photo(data.Photo)
-            //if (data.Photo == null)
-              //  $(".cardImage").attr("src", "../images/jsp.png");
+            //if (data.Photo == null) {
+              //  $(".cardImage").attr("src", "../images/jsp.png");}
             //self.SetFavourites();
         });
     };
