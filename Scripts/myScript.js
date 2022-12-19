@@ -12,4 +12,10 @@ $(".Toggler").click(function() {
     $("table").toggleClass("nav-items-dark table-striped");
    
 });
+
+
+
+
+
+
 });

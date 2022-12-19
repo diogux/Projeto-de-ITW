@@ -13,8 +13,8 @@ var vm = function () {
     self.ModalityId = ko.observable('');
     self.Modality = ko.observable('');
     self.Photo = ko.observable('');
-    self.Participant = ko.observable('');
     self.Url = ko.observable('');
+    self.Participant = ko.observableArray([]);
 
     //--- Page Events
     self.activate = function (id) {

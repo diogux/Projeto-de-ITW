@@ -66,6 +66,13 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             //self.SetFavourites();
+            let search = ["ola", "adeus"]
+            
+                $("#tags" ).autocomplete({
+                    source: search
+                  }); 
+        
+            
         });
     };
 
@@ -133,6 +140,9 @@ var vm = function () {
 $(document).ready(function () {
     console.log("ready!");
     ko.applyBindings(new vm());
+    $("#tags" ).autocomplete({
+        source: data.records 
+      }); 
 });
 
 $(document).ajaxComplete(function (event, xhr, options) {
