@@ -43,9 +43,9 @@ var vm = function () {
         for (var i = 1; i <= size; i++)
             list.push(i + step);
         return list; };
-
+        
     // make a search bar to filter the list using the api
-
+    
 
 
 
@@ -66,13 +66,6 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             //self.SetFavourites();
-            let search = ["ola", "adeus"]
-            
-                $("#tags" ).autocomplete({
-                    source: search
-                  }); 
-        
-            
         });
     };
 
@@ -140,9 +133,10 @@ var vm = function () {
 $(document).ready(function () {
     console.log("ready!");
     ko.applyBindings(new vm());
-    $("#tags" ).autocomplete({
-        source: data.records 
-      }); 
+    
+   
+    
+   
 });
 
 $(document).ajaxComplete(function (event, xhr, options) {
