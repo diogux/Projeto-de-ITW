@@ -54,8 +54,26 @@
             <div class="col-2">Name</div>
             <div class="col-10" data-bind="text: Name"></div>
         </div>
-
-
+        <div class="row border-bottom mx-0 my-1">
+            <div class="col-2">ModalityID</div>
+            <div class="col-10" data-bind="text: ModalityId"></div>
+        </div>
+        <div class="row border-bottom mx-0 my-1">
+            <div class="col-2">Modality</div>
+            <div class="col-10" data-bind="text: Modality"></div>
+        </div>
+        <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
+            <div class="col-2">Photo</div>
+            <div class="small col-10">
+                <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br />
+                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none"
+                    data-bind="attr: { href: Photo }, text : Photo" target="_blank"></a>]
+            </div>
+        </div>
+        <div class="row border-bottom mx-0 my-1">
+            <div class="col-2">Participant</div>
+            <div class="col-10" data-bind="text: Participant">
+        </div>
 
 
 
