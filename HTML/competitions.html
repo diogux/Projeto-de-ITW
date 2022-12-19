@@ -103,7 +103,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th style="padding-left: 30px" scope="col">Photo</th>
-                    <th scope="col">Modality</th>
+                    <th style="padding-left: 15px" scope="col">Modality</th>
                     <th scope="col">Results</th>
                     <th scope="col" class="text-right"></th>
                 </tr>
@@ -112,13 +112,18 @@
                 <tr>
                     <td class="align-middle" data-bind="text:Id"></td>
                     <td class="align-middle" data-bind="text:Name"></td>
+<<<<<<< HEAD
                     <td><img class="competitions-img" data-bind="attr:{src: Photo}">
+=======
+                    <td><img class="competitions-img" 
+                        data-bind="attr:{src: Photo}">
+>>>>>>> 6a151f58ce64a398a4a5781a9923f39a51254988
                     </td>
                     <td class="align-middle" data-bind="text:Modality"></td>
                     <td class="align-middle" data-bind="text:Results"></td>
-                    <td class="text-end">
+                    <td style="padding-top:40px" class="text-end">
                         <a class="btn btn-default btn-light btn-xs"
-                            data-bind="attr: { href:'./competitions.html?id=' + Id }">
+                            data-bind="attr: { href:'./competitionsDetails.html?id=' + Id }">
                             <i class="fa fa-eye" title="Selecione para ver detalhes"></i>
                         </a>
                         <button class="btn btn-default btn-xs">

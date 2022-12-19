@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -36,7 +36,7 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="games.html"><i
                                 class="fa fa-map-marker text-success"></i> Games</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i
-                                class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>   
+                                class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="favoritos.html"><i
                                 class="fa fa-heart-o text-danger"></i> Favorites</a></li>
                 </ul>
@@ -50,7 +50,7 @@
         </div>
         <!-- ko if:Name().length > 0 -->
         <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Game Id</div>
+            <div class="col-2">Id</div>
             <div class="col-10" data-bind="text: Id"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
@@ -58,25 +58,26 @@
             <div class="col-10" data-bind="text: Name"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Country Name</div>
-            <div class="col-10" data-bind="text: CountryName"></div>
+            <div class="col-2">Sex</div>
+            <div class="col-10" data-bind="text: Sex"></div>
         </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Season</div>
-            <div class="col-10" data-bind="text: Season"></div>
+        <div class="row border-bottom mx-0  my-1" id="Height">
+            <div class="col-2">Height</div>
+            <div class="col-10" data-bind="text: Height() + ' cm'"></div>
         </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Year</div>
-            <div class="col-10" data-bind="text: Year"></div>
+        <div class="row border-bottom mx-0  my-1 " id="Weight">
+            <div class="col-2">Weight</div>
+            <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
         </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Logo() != '' && Logo() != null">
-            <div class="col-2">Logo</div>
-            <div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Logo}"><br /><i class="fa fa-link"></i><br />
-                [<a class="link-dark text-decoration-none" data-bind="attr: { href: Logo }, text: Logo"
-                    target="_blank"></a>]
-            </div>
+        <div class="row border-bottom mx-0  my-1" id="Olympedia">
+            <div class="col-2">Olympedia Link</div>
+            <div class="col-10" data-bind="text: Url"></div>
         </div>
+
+
+
+
+
         <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
             <div class="col-2">Photo</div>
             <div class="small col-10">
@@ -87,8 +88,7 @@
         </div>
         <!-- /ko -->
         <a href="./games.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
-        <a data-bind="attr: { href:'./gameFull.html?id=' + Id() }" class="btn btn-default btn-sm small"><i
-                class="fa fa-th"></i> Full Setails</a>
+
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -123,7 +123,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="..\Scripts\gameDetails.js"></script>
+    <script src="..\Scripts\athletesFull.js"></script>
 </body>
 
 </html>
