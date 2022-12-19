@@ -122,9 +122,10 @@ font-size: 0.85rem;
 
 
 .card > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .card{
@@ -132,8 +133,13 @@ font-size: 0.85rem;
     left:0px;
     background: #fff;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+<<<<<<< HEAD
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
   
+=======
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 0;
+>>>>>>> 41dd5e1d10a314523e1eae94b0ea1e38906713e1
   cursor: pointer;
 }
 
