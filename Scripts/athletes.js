@@ -53,19 +53,29 @@ $().ready(function () {
                 dataType: "json"
             }).done(function (data) {
                 let names = data.map(function (athlete) {
-                    return athlete.Name;
+                    return {
+                        label: athlete.Name,
+                        value: athlete.Id
+                    }
                 });
-                let id = data.map(function (id) {
-                    return id.Id;
-                });
-
                 // Return the suggestions to the autocomplete widget
                 response(names.slice(0, 10));
             });
-        }
+        },
+        focus: function (event, ui) {
+            event.preventDefault();
+        },
+        select: function (event, ui) {
+            window.location.href = "athletesDetails.html?id=" + ui.item.value;
+        },
+        
     });
+$('#tags').keypress(function (event) {
+    if (event.which == 13) {
+        $(this).autocomplete("search", "");
+    }
 
-
+});
 });
 
 
