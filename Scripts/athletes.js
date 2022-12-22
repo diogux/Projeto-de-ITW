@@ -43,10 +43,30 @@ var vm = function () {
         for (var i = 1; i <= size; i++)
             list.push(i + step);
         return list; };
-        
-    // make a search bar to filter the list using the api
-    
+$().ready(function () {
+    $("#tags").autocomplete({
+        minlenght: 3,
+        source: function (request, response) {
+            // Make an AJAX call to the API
+            $.ajax({
+                url: "http://192.168.160.58/Olympics/api/Athletes//SearchByName?q=" + request.term,
+                dataType: "json"
+            }).done(function (data) {
+                let names = data.map(function (athlete) {
+                    return athlete.Name;
+                });
+                let id = data.map(function (id) {
+                    return id.Id;
+                });
 
+                // Return the suggestions to the autocomplete widget
+                response(names.slice(0, 10));
+            });
+        }
+    });
+
+
+});
 
 
    
@@ -142,3 +162,7 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 })
+
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );

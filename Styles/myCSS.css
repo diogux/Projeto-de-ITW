@@ -133,13 +133,7 @@ font-size: 0.85rem;
     left:0px;
     background: #fff;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-<<<<<<< HEAD
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-  
-=======
-      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-  padding: 0;
->>>>>>> 41dd5e1d10a314523e1eae94b0ea1e38906713e1
   cursor: pointer;
 }
 
@@ -147,3 +141,31 @@ font-size: 0.85rem;
      transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
+
+
+/* CSS Styles */
+.ui-autocomplete {
+    z-index: 9999;
+    max-height: 400px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+  }
+  /* adjust the position of the suggestion list */
+  .ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  /* style the suggestion list items */
+  .ui-autocomplete > li {
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+  }
+  .ui-autocomplete > li.ui-state-focus {
+    background-color: #eee;
+  }
