@@ -153,13 +153,7 @@ font-size: 0.85rem;
     /* add padding to account for vertical scrollbar */
     padding-right: 20px;
   }
-  /* adjust the position of the suggestion list */
-  .ui-autocomplete {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-  }
+ 
   /* style the suggestion list items */
   .ui-autocomplete > li {
     padding: 10px;
@@ -169,3 +163,5 @@ font-size: 0.85rem;
   .ui-autocomplete > li.ui-state-focus {
     background-color: #eee;
   }
+
+  

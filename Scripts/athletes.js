@@ -43,39 +43,29 @@ var vm = function () {
         for (var i = 1; i <= size; i++)
             list.push(i + step);
         return list; };
-$().ready(function () {
+
+        $().ready(function () {
     $("#tags").autocomplete({
         minlenght: 3,
         source: function (request, response) {
-            // Make an AJAX call to the API
             $.ajax({
                 url: "http://192.168.160.58/Olympics/api/Athletes//SearchByName?q=" + request.term,
                 dataType: "json"
-            }).done(function (data) {
-                let names = data.map(function (athlete) {
+            }).done(function ( APIdata) {
+                data = APIdata;
+                let athletes = data.map(function (athlete) {
                     return {
                         label: athlete.Name,
                         value: athlete.Id
                     }
-                });
-                // Return the suggestions to the autocomplete widget
-                response(names.slice(0, 10));
+                         });
+                response(athletes.slice(0, 10));
             });
-        },
-        focus: function (event, ui) {
-            event.preventDefault();
         },
         select: function (event, ui) {
             window.location.href = "athletesDetails.html?id=" + ui.item.value;
         },
-        
-    });
-$('#tags').keypress(function (event) {
-    if (event.which == 13) {
-        $(this).autocomplete("search", "");
-    }
-
-});
+    }).find("li").css({ width: "150px" });
 });
 
 
