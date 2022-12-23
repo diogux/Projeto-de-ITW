@@ -43,6 +43,12 @@ var vm = function () {
             if (data.OlympediaLink == null) {
                 $("#Olympedia").hide();
             }
+            if (data.Sex === "F") {
+                $("#sex").html('<i class="Female fa fa-venus" aria-hidden="true"></i>');
+                }
+                if (data.Sex === "M") {
+                    $("#sex").html('Male <i class="fa fa-mars" aria-hidden="true"></i>');
+                }
         });
     };
 
