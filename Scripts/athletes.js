@@ -90,7 +90,7 @@ var vm = function () {
             
             if ($("#sex").html() == "M") {
                 $("#sex").html('M <i class="fa fa-mars" aria-hidden="true"></i> ');}
-    
+     d
         });
     };
 
