@@ -65,7 +65,11 @@ var vm = function () {
             }
             if (data.DiedDate == null) {
                 $("#DiedDate").hide();
+                let age = new Date().getFullYear() - new Date(data.BornDate).getFullYear() + " years old"
+                if (age > 130) {
+                    $("#age").text("Unknown")}
                 $("#age").text(new Date().getFullYear() - new Date(data.BornDate).getFullYear() + " years old")
+
             }
             if (data.DiedPlace == null) {
                 $("#DiedPlace").hide();
@@ -75,6 +79,8 @@ var vm = function () {
             }
             if (data.BornDate == null) {
                 $("#BornDate").hide();
+                $("#age").text("Unknown");
+                
             }
             if (data.Sex === "F") {
                 $("#sex").html('<i class="Female fa fa-venus" aria-hidden="true"></i>');

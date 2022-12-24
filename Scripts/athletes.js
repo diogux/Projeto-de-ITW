@@ -86,8 +86,16 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             //self.SetFavourites();
+    
+            
+            if ($("#sex").html() == "M") {
+                $("#sex").html('M <i class="fa fa-mars" aria-hidden="true"></i> ');}
+    
         });
     };
+
+
+    
 
     //--- Internal functions
     function ajaxHelper(uri, method, data) {
