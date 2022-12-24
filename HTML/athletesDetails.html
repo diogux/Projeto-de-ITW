@@ -51,56 +51,72 @@
         <!-- ko if:Name().length > 0 -->
 
 
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
+        <div class="py-2 border-bottom mb-3 row">
+            <div class="col">
+                <h2 data-bind="text:Name()"></h2>
+            </div>
+            <div class="col pt-2" align="right"><a href="./athletes.html" class="btn btn-default btn-sm small"><i
+                        class="fa fa-list"></i>
+                    Back to List</a>
+                <a data-bind="attr: { href:'./athletesFull.html?id=' + Id() }" class="btn btn-default btn-sm small"><i
+                        class="fa fa-th"></i> Full Details</a>
+            </div>
+
         </div>
 
-        <div class="cardDetails mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-11">
-                    <a data-bind="attr: {href: Photo}"><img data-bind="attr: {src: Photo}" class="img-fluid rounded"
-                            alt="...">
-                    </a>
+
+        <div class="row">
+            <div class="col-8 lista">
+                <div class="row border-bottom mx-0 my-1 infos">
+                    <div class="col-2">Id</div>
+                    <div class="col-10" data-bind="text: Id"></div>
                 </div>
-                <div class="col-md-1">
-                    <div class="card-body ps-3 " style="width: 600px;">
-
-
-                        <h5 class="card-title "><b> Athlete Informations</b></h5>
-                        <div class="row bodyDetails">
-                            <div class="row  mx-0 my-1">
-                                <div class="col-2">Id</div>
-                                <div class="col-10" data-bind="text: Id"></div>
-                            </div>
-                            <div class="row border-bottom mx-0  my-1">
-                                <div class="col-2">Name</div>
-                                <div class="col-10" data-bind="text: Name"></div>
-                            </div>
-                            <div class="row border-bottom mx-0  my-1">
-                                <div class="col-2">Sex</div>
-                                <div class="col-10" id="sex"></div>
-                            </div>
-                            <div class="row border-bottom mx-0  my-1" id="Height">
-                                <div class="col-2">Height</div>
-                                <div class="col-10" data-bind="text: Height() + ' cm'"></div>
-                            </div>
-                            <div class="row border-bottom mx-0  my-1 " id="Weight">
-                                <div class="col-2">Weight</div>
-                                <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
-                            </div>
-                            <div class="row border-bottom mx-0  my-1" id="Olympedia">
-                                <div class="col-2">Olympedia Link</div>
-                                <div class="col-10" data-bind="text: Url"></div>
-                            </div>
-                        </div>
-
-
-
-
+                <div class="row border-bottom mx-0  my-1 infos">
+                    <div class="col-2">Sex</div>
+                    <div class="col-10" id="sex"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos">
+                    <div class="col-2">Age</div>
+                    <div class="col-10" id="age"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="Height">
+                    <div class="col-2">Height</div>
+                    <div class="col-10" data-bind="text: Height() + ' cm'"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos " id="Weight">
+                    <div class="col-2">Weight</div>
+                    <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="BornDate">
+                    <div class="col-2">Date of Birth</div>
+                    <div class="col-10" id="BornD"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="BornPlace">
+                    <div class="col-2">Place of Birth</div>
+                    <div class="col-10" data-bind="text: BornPlace"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos " id="DiedDate">
+                    <div class="col-2">Date of Death</div>
+                    <div class="col-10" id="DiedD"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos " id="DiedPlace">
+                    <div class="col-2">Place of Death</div>
+                    <div class="col-10" data-bind="text: DiedPlace"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="Olympedia">
+                    <div class="col-2">Olympedia Link <i class="fa fa-link" aria-hidden="true"></i></div>
+                    <div class="col-10"><a style="text-decoration:none; color:rgb(128, 9, 9)"
+                            data-bind="attr: {href: Url}, text: Url" id="link"></a>
                     </div>
                 </div>
             </div>
+            <div class="col-4" align="center"><a data-bind="attr: {href: Photo}"><img id="fotinha"
+                        class="img-fluid rounded" alt="..." style="max-height:565px">
+                </a></div>
         </div>
+
+
+
 
 
 
@@ -109,9 +125,7 @@
 
 
         <!-- /ko -->
-        <a href="./athletes.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
-        <a data-bind="attr: { href:'./athletesFull.html?id=' + Id() }" class="btn btn-default btn-sm small"><i
-                class="fa fa-th"></i> Full Details</a>
+
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -17,6 +17,11 @@ var vm = function () {
     self.Height = ko.observable('');
     self.Weight = ko.observable('');
     self.Url = ko.observable('');
+    self.BornDate = ko.observable('');
+    self.DiedDate = ko.observable('');
+    self.BornPlace = ko.observable('');
+    self.DiedPlace = ko.observable('');
+
 
     //--- Page Events
     self.activate = function (id) {
@@ -33,6 +38,10 @@ var vm = function () {
             self.Weight(data.Weight);
             self.Height(data.Height);
             self.Url(data.OlympediaLink);
+            self.DiedPlace(data.DiedPlace);
+            self.BornPlace(data.BornPlace);
+            self.DiedDate(data.DiedDate);
+            self.BornDate(data.BornDate);
             // if height is null, then hide the div
             if (data.Height == "NA") {
                 $("#Height").hide();
@@ -43,12 +52,41 @@ var vm = function () {
             if (data.OlympediaLink == null) {
                 $("#Olympedia").hide();
             }
+            if (data.DiedDate != null) {
+                $("#DiedDate").show();
+                $("#age").text(new Date(data.DiedDate).getFullYear() - new Date(data.BornDate).getFullYear() + " (Passed Away)")
+                $("#DiedD").text( new Date(data.DiedDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }))
+
+            }
+            if (data.BornDate != null) {
+                $("#BornD").text( new Date(data.BornDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }))
+
+
+            }
+            if (data.DiedDate == null) {
+                $("#DiedDate").hide();
+                $("#age").text(new Date().getFullYear() - new Date(data.BornDate).getFullYear() + " years old")
+            }
+            if (data.DiedPlace == null) {
+                $("#DiedPlace").hide();
+            }
+            if (data.BornPlace == null) {
+                $("#BornPlace").hide();
+            }
+            if (data.BornDate == null) {
+                $("#BornDate").hide();
+            }
             if (data.Sex === "F") {
                 $("#sex").html('<i class="Female fa fa-venus" aria-hidden="true"></i>');
                 }
                 if (data.Sex === "M") {
                     $("#sex").html('Male <i class="fa fa-mars" aria-hidden="true"></i>');
                 }
+            if (data.Photo != null) {
+                $("#fotinha").attr("src", data.Photo);
+            } else {
+                $("#fotinha").attr("src", "https://media.tenor.com/uM4ITVkcSnIAAAAC/maria-leal-mary-loyal.gif");
+            }
         });
     };
 

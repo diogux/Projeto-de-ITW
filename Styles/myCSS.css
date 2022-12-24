@@ -155,7 +155,9 @@ font-size: 0.85rem;
     justify-content: space-between;
     height: fit-content;
 } 
-
+.infos > div{
+    padding: 5px;
+}
 
 /* Autocomplete */
 .ui-autocomplete {
