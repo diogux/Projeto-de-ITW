@@ -132,7 +132,7 @@
                     <td class="align-middle" data-bind="text:Id"></td>
                     <td class="align-middle"><a href="" style="text-decoration:none; color:black"
                             data-bind="text: Name, attr: {href:'./athletesDetails.html?id=' + Id }"></a></td>
-                    <td class="align-middle" data-bind="text:Sex" id="sex"></td>
+                    <td class="align-middle" data-bind="html: $root.formatSex(Sex)"></td>
                     <td class="text-end">
                         <a class="btn btn-default btn-light btn-xs"
                             data-bind="attr: { href:'./athletesDetails.html?id=' + Id }">

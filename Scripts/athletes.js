@@ -15,6 +15,14 @@ var vm = function () {
     self.hasPrevious = ko.observable(false);
     self.hasNext = ko.observable(false);
     self.Search = ko.observable('');
+    
+    self.formatSex = function(sex) {
+        const iconName = sex == "M" ? "mars" : "venus";
+        let sexo = sex == "M" ? "M" : "F";
+        const icon = `${sexo}  <i class="fa fa-${iconName}" aria-hidden="true"></i>`
+    
+        return icon;
+    }
 
     self.previousPage = ko.computed(function () {
         return self.currentPage() * 1 - 1;
