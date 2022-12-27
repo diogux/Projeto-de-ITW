@@ -21,6 +21,7 @@ var vm = function () {
     self.DiedDate = ko.observable('');
     self.BornPlace = ko.observable('');
     self.DiedPlace = ko.observable('');
+    self.Competitions = ko.observableArray([]);
 
 
     //--- Page Events
@@ -42,6 +43,7 @@ var vm = function () {
             self.BornPlace(data.BornPlace);
             self.DiedDate(data.DiedDate);
             self.BornDate(data.BornDate);
+            self.Competitions(data.Competitions);
             // if height is null, then hide the div
             if (data.Height == "NA") {
                 $("#Height").hide();

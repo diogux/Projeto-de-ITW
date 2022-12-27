@@ -63,6 +63,9 @@ var vm = function () {
             if (data.Sex === "M") {
                 $("#sex").html('Male <i class="fa fa-mars" aria-hidden="true"></i>');
             }
+            if (data.medals == null) {
+                $("#medals").hide();
+            }
         });
     };
 
