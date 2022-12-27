@@ -9,6 +9,7 @@ var vm = function () {
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     self.records = ko.observableArray([]);
+    self.favourites = ko.observableArray([]);
     self.currentPage = ko.observable(1);
     self.pagesize = ko.observable(20);
     self.totalRecords = ko.observable(50);
@@ -26,7 +27,54 @@ var vm = function () {
     self.toRecord = ko.computed(function () {
         return Math.min(self.currentPage() * self.pagesize(), self.totalRecords());
     }, self);
+    
     self.totalPages = ko.observable(0);
+    self.toggleFavourite = function (id) {
+        if (self.favourites.indexOf(id) == -1) {
+            self.favourites.push(id);
+        }
+        else {
+            self.favourites.remove(id);
+        }
+        localStorage.setItem("fav2", JSON.stringify(self.favourites()));
+    };
+    self.SetFavourites = function () {
+        let storage;
+        try {
+            storage = JSON.parse(localStorage.getItem("fav2"));
+        }
+        catch (e) {
+            ;
+        }
+        if (Array.isArray(storage)) {
+            self.favourites(storage);
+        }
+    };
+    $().ready(function () {
+        $("#tagsCountries").autocomplete({
+            minlenght: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: "http://192.168.160.58/Olympics/api/Countries/SearchByName?q=" + request.term,
+                    dataType: "json"
+                }).done(function ( APIdata) {
+                    data = APIdata;
+                    let countries = data.map(function (country) {
+                        return {
+                            label: country.Name,
+                            value: country.Id
+                        }
+                             });
+                    response(countries.slice(0, 10));
+                });
+            },
+            select: function (event, ui) {
+                window.location.href = "countriesDetails.html?id=" + ui.item.value;
+            },
+        }).find("li").css({ width: "150px" });
+    });
+    
+
     self.pageArray = function () {
         var list = [];
         var size = Math.min(self.totalPages(), 9);
@@ -64,8 +112,7 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
-            //self.SetFavourites();
-        });
+self.SetFavourites();        });
     };
 
     //--- Internal functions

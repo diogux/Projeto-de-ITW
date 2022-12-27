@@ -12,6 +12,8 @@
     <link href="\lib\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
     <link href="/lib/font-awesome/dist/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="..\Styles\myCSS.css" />
+    <link rel="stylesheet" href="\lib\jquery-ui\dist\themes\base\jquery-ui.css">
+
 </head>
 
 <body>
@@ -37,7 +39,7 @@
                                 class="fa fa-map-marker text-success"></i> Games</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i
                                 class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="favoritos.html"><i
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="favorites.html"><i
                                 class="fa fa-heart-o text-danger"></i> Favorites</a></li>
                 </ul>
             </div>
@@ -45,8 +47,17 @@
     </nav>
     <!-- Working Area -->
     <div class="container">
-        <div class="border-bottom py-2 mb-2">
-            <h2 data-bind="text:displayName"></h2>
+        <div class="d-flex flex-row">
+            <div class="py-2 me-auto mb-1 col-6">
+                <h2 data-bind="text:displayName"></h2>
+            </div>
+            <div class="col-4">
+                <form class="form-inline py-2 my-lg-0 ">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search and Select Someone"
+                        spellcheck="false" id="tagsCompetitions" aria-label="Search">
+                </form>
+            </div>
+
         </div>
         <!-- ko if:records().length > 0 -->
 
@@ -87,7 +98,8 @@
 
                     <!-- ko if: currentPage() < totalPages() - 4 && totalPages() > 9 -->
                     <li class="page-item"><a class="page-link" title="Next Page"
-                            data-bind="attr: { href: './competitions.html?page=' + nextPage(), rel:'next' }">→</a></li>
+                            data-bind="attr: { href: './competitions.html?page=' + nextPage(), rel:'next' }">→</a>
+                    </li>
                     <li class="page-item"><a class="page-link" title="Last Page"
                             data-bind="attr: { href: './competitions.html?page=' + totalPages() }">⇥</a></li>
                     <!-- /ko -->
@@ -120,9 +132,10 @@
                             data-bind="attr: { href:'./competitionsDetails.html?id=' + Id }">
                             <i class="fa fa-eye" title="Selecione para ver detalhes"></i>
                         </a>
-                        <button class="btn btn-default btn-xs">
-                            <i class="fa fa-heart-o" data-bind="attr : { 'id': 'favourite_' + Id }"
-                                title="Selecione para adicionar aos favoritos"></i>
+                        <button data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }"
+                            id="heartbt" class="btn btn-favourite">
+                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o'}"
+                                class="fa fa-heart-o" title="Selecione para adicionar aos favoritos"></i>
                         </button>
                     </td>
                 </tr>
@@ -151,7 +164,8 @@
             <div class="navbar-text">Made with <i class="fa fa-heart-o text-danger"></i> for U by <a
                     href="mailto:jsp@ua.pt" class="text-decoration-none text-muted">jsp@ua.pt</a>.</div>
             <div class="navbar-nav">
-                <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a>
+                <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de
+                        Aveiro</a>
                 </div>
             </div>
         </div>
@@ -159,6 +173,8 @@
     <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/knockout/dist/knockout-latest.min.js"></script>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="\lib\jquery-ui\dist\jquery-ui.js"></script>
+
     <script src="..\Scripts\competitions.js"></script>
 </body>
 

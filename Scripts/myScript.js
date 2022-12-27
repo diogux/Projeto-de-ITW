@@ -11,6 +11,7 @@ $(".Toggler").click(function () {
     $(".nav-items").toggleClass("nav-items-dark");
     $("body").toggleClass("dark-mode");
     $("table").toggleClass("nav-items-dark table-striped");
+    $(".nome").toggleClass("text-white");
 
 });
 

@@ -10,6 +10,7 @@ var vm = function () {
     self.passingMessage = ko.observable('');
     self.records = ko.observableArray([]);
     self.currentPage = ko.observable(1);
+    self.favourites = ko.observableArray([]);
     self.pagesize = ko.observable(20);
     self.totalRecords = ko.observable(50);
     self.hasPrevious = ko.observable(false);
@@ -43,6 +44,50 @@ var vm = function () {
             list.push(i + step);
         return list;
     };
+    $().ready(function () {
+        $("#tagsModalities").autocomplete({
+            minlenght: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: "http://192.168.160.58/Olympics/api/Modalities/SearchByName?q=" + request.term,
+                    dataType: "json"
+                }).done(function ( APIdata) {
+                    data = APIdata;
+                    let modalities = data.map(function (modality) {
+                        return {
+                            label: modality.Name,
+                            value: modality.Id
+                        }
+                             });
+                    response(modalities.slice(0, 10));
+                });
+            },
+            select: function (event, ui) {
+                window.location.href = "modalitiesDetails.html?id=" + ui.item.value;
+            },
+        }).find("li").css({ width: "150px" });
+    });
+    self.toggleFavourite = function (id) {
+        if (self.favourites.indexOf(id) == -1) {
+            self.favourites.push(id);
+        }
+        else {
+            self.favourites.remove(id);
+        }
+        localStorage.setItem("fav4", JSON.stringify(self.favourites()));
+    };
+    self.SetFavourites = function () {
+        let storage;
+        try {
+            storage = JSON.parse(localStorage.getItem("fav4"));
+        }
+        catch (e) {
+            ;
+        }
+        if (Array.isArray(storage)) {
+            self.favourites(storage);
+        }
+    };
     
 
     
@@ -65,8 +110,7 @@ var vm = function () {
             self.Photo(data.Photo)
             //if (data.Photo == null) {
               //  $(".cardImage").attr("src", "../images/jsp.png");}
-            //self.SetFavourites();
-        });
+self.SetFavourites();        });
     };
 
     //--- Internal functions

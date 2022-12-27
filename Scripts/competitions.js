@@ -11,6 +11,7 @@ var vm = function () {
     self.records = ko.observableArray([]);
     self.currentPage = ko.observable(1);
     self.pagesize = ko.observable(20);
+    self.favourites = ko.observableArray([]);
     self.totalRecords = ko.observable(50);
     self.hasPrevious = ko.observable(false);
     self.hasNext = ko.observable(false);
@@ -42,6 +43,51 @@ var vm = function () {
             list.push(i + step);
         return list;
     };
+    self.toggleFavourite = function (id) {
+        if (self.favourites.indexOf(id) == -1) {
+            self.favourites.push(id);
+        }
+        else {
+            self.favourites.remove(id);
+        }
+        localStorage.setItem("fav3", JSON.stringify(self.favourites()));
+    };
+    self.SetFavourites = function () {
+        let storage;
+        try {
+            storage = JSON.parse(localStorage.getItem("fav3"));
+        }
+        catch (e) {
+            ;
+        }
+        if (Array.isArray(storage)) {
+            self.favourites(storage);
+        }
+    };
+    $().ready(function () {
+        $("#tagsCompetitions").autocomplete({
+            minlenght: 3,
+            source: function (request, response) {
+                $.ajax({
+                    url: "http://192.168.160.58/Olympics/api/Competitions/SearchByName?q=" + request.term,
+                    dataType: "json"
+                }).done(function ( APIdata) {
+                    data = APIdata;
+                    let competitions = data.map(function (competitions) {
+                        return {
+                            label: competitions.Name,
+                            value: competitions.Id
+                        }
+                             });
+                    response(competitions.slice(0, 10));
+                });
+            },
+            select: function (event, ui) {
+                window.location.href = "competitionsDetails.html?id=" + ui.item.value;
+            },
+        }).find("li").css({ width: "150px" });
+    });
+
 
     //--- Page Events
     self.activate = function (id) {
@@ -57,8 +103,8 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
-            //self.SetFavourites();
-        });
+            self.SetFavourites();     
+   });
     };
 
     //--- Internal functions

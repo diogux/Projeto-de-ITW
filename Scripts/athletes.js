@@ -9,6 +9,7 @@ var vm = function () {
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     self.records = ko.observableArray([]);
+    self.favourites = ko.observableArray([]);
     self.currentPage = ko.observable(1);
     self.pagesize = ko.observable(20);
     self.totalRecords = ko.observable(50);
@@ -20,9 +21,30 @@ var vm = function () {
         const iconName = sex == "M" ? "mars" : "venus";
         let sexo = sex == "M" ? "M" : "F";
         const icon = `${sexo}  <i class="fa fa-${iconName}" aria-hidden="true"></i>`
-    
         return icon;
-    }
+
+    };
+    self.toggleFavourite = function (id) {
+        if (self.favourites.indexOf(id) == -1) {
+            self.favourites.push(id);
+        }
+        else {
+            self.favourites.remove(id);
+        }
+        localStorage.setItem("fav", JSON.stringify(self.favourites()));
+    };
+    self.SetFavourites = function () {
+        let storage;
+        try {
+            storage = JSON.parse(localStorage.getItem("fav"));
+        }
+        catch (e) {
+            ;
+        }
+        if (Array.isArray(storage)) {
+            self.favourites(storage);
+        }
+    };
 
     self.previousPage = ko.computed(function () {
         return self.currentPage() * 1 - 1;
@@ -53,11 +75,11 @@ var vm = function () {
         return list; };
 
         $().ready(function () {
-    $("#tags").autocomplete({
+    $("#tagsAthletes").autocomplete({
         minlenght: 3,
         source: function (request, response) {
             $.ajax({
-                url: "http://192.168.160.58/Olympics/api/Athletes//SearchByName?q=" + request.term,
+                url: "http://192.168.160.58/Olympics/api/Athletes/SearchByName?q=" + request.term,
                 dataType: "json"
             }).done(function ( APIdata) {
                 data = APIdata;
@@ -93,7 +115,7 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
-            //self.SetFavourites();
+            self.SetFavourites();
     
             
             if ($("#sex").html() == "M") {

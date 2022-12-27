@@ -64,6 +64,10 @@ li.page-item a {
     font-size: 0.85rem;
 }
 
+.text-white{
+    color: white;
+    }
+
 .card-dark {
     background-color: #212529;
     color: white;
