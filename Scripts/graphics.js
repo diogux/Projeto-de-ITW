@@ -69,3 +69,6 @@ function createPieChart(Counter, Name) {
 window.onload = function () {
     createPieChart(Counter1, Name1);
 }
+
+
+
