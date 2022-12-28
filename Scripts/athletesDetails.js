@@ -44,7 +44,6 @@ var vm = function () {
             self.DiedDate(data.DiedDate);
             self.BornDate(data.BornDate);
             self.Competitions(data.Competitions);
-            // if height is null, then hide the div
             if (data.Height == "NA") {
                 $("#Height").hide();
             }
@@ -93,7 +92,7 @@ var vm = function () {
             if (data.Photo != null) {
                 $("#fotinha").attr("src", data.Photo);
             } else {
-                $("#fotinha").attr("src", "https://media.tenor.com/uM4ITVkcSnIAAAAC/maria-leal-mary-loyal.gif");
+                $("#fotinha").attr("src", "https://feb.kuleuven.be/drc/LEER/visiting-scholars-1/image-not-available.jpg/image");
             }
         });
     };

@@ -12,6 +12,8 @@
     <link href="\lib\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
     <link href="/lib/font-awesome/dist/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="..\Styles\myCSS.css" />
+    <link rel="stylesheet" href="\lib\jquery-ui\dist\themes\base\jquery-ui.css">
+
     <style>
         .carousel {
             width: 100%;
@@ -63,7 +65,7 @@
                                 class="fa fa-trophy"></i> Competitions</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html"><i
                                 class=" fa fa-flag-o text-danger"></i> Countries</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="games.html"><i
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="games.html"><i
                                 class="fa fa-map-marker text-success"></i> Games</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i
                                 class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
@@ -75,11 +77,16 @@
                                 class="fa fa-address-book-o text-danger"></i> About us</a></li>
                 </ul>
 
+                <div>
+                    <form>
+                        <input class="form-control mr-sm-2" type="search" style="width:150px"
+                            placeholder="Search and Select Someone" spellcheck="false" id="tagsIndex"
+                            aria-label="Search">
+                    </form>
+
+                </div>
                 <div class="Toggler"> <i class="fa fa-sun-o fa-2x" aria-hidden="true"></i> </div>
-
-
             </div>
-        </div>
     </nav>
     <!-- Working Area -->
     <div id="myCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
@@ -160,12 +167,14 @@
         </div>
     </nav>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+
 
     <script src="/lib/knockout/dist/knockout-latest.min.js"></script>
+    <script src="\lib\jquery-ui\dist\jquery-ui.js"></script>
 
     <script src="..\Scripts\myScript.js"></script>
+    <script src="..\Scripts\index.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
