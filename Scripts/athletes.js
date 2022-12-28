@@ -24,10 +24,16 @@ var vm = function () {
         return icon;
 
     };
-    self.formatMedal = function(medal) {
-        const iconName = medal == "4" ? "circle" : "square";
-        const icon = `<i class="fa fa-${iconName}" aria-hidden="true"></i>`
-        return icon;};
+    self.formatPosition = function(med) {
+        if(med == "1")
+          return '<img style="width:40px;height:37px;" src="/images/Medal1.png" />';
+        if(med == "2")
+          return '<img style="width:40px;height:37px " src="/images/Medal2.png" />';
+        if(med == "3")
+          return '<img style="width:40px;height:37px;" src="/images/Medal3.png" />';
+        if(med == "4")
+          return "No Medal";
+    };
 
     self.toggleFavourite = function (id) {
         if (self.favourites.indexOf(id) == -1) {
