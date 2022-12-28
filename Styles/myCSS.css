@@ -64,9 +64,9 @@ li.page-item a {
     font-size: 0.85rem;
 }
 
-.text-white{
+.text-white {
     color: white;
-    }
+}
 
 .card-dark {
     background-color: #212529;
@@ -184,3 +184,38 @@ li.page-item a {
     background-color: #eee;
 }
 
+<<<<<<< HEAD
+#filterForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#filterForm label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+#filterForm input[type="submit"] {
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    background-color: #4caf50;
+    /* Green background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    border-radius: 4px;
+    /* Round corners */
+    cursor: pointer;
+    /* Add cursor on hover */
+}
+
+#filterForm input[type="submit"]:hover {
+    background-color: #45a049;
+    /* Darker green background on hover */
+}
+=======
+>>>>>>> 1e309a41f3e8a80d3a181c9227e1a00e231f7949
