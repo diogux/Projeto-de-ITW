@@ -24,6 +24,11 @@ var vm = function () {
         return icon;
 
     };
+    self.formatMedal = function(medal) {
+        const iconName = medal == "4" ? "circle" : "square";
+        const icon = `<i class="fa fa-${iconName}" aria-hidden="true"></i>`
+        return icon;};
+
     self.toggleFavourite = function (id) {
         if (self.favourites.indexOf(id) == -1) {
             self.favourites.push(id);
@@ -77,7 +82,7 @@ var vm = function () {
        
         $().ready(function () {
             $("#tagsAthletes").autocomplete({
-                minlenght: 3,
+                minLenght: 3,
                 source: function (request, response) {
                     $.ajax({
                         url: "http://192.168.160.58/Olympics/api/Athletes/SearchByName?q=" + request.term,

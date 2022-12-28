@@ -184,6 +184,7 @@ li.page-item a {
     background-color: #eee;
 }
 
+<<<<<<< HEAD
 #filterForm {
     display: flex;
     flex-direction: column;
@@ -216,3 +217,5 @@ li.page-item a {
     background-color: #45a049;
     /* Darker green background on hover */
 }
+=======
+>>>>>>> 1e309a41f3e8a80d3a181c9227e1a00e231f7949

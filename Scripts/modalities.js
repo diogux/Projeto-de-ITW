@@ -46,7 +46,7 @@ var vm = function () {
     };
     $().ready(function () {
         $("#tagsModalities").autocomplete({
-            minlenght: 3,
+            minLenght: 3,
             source: function (request, response) {
                 $.ajax({
                     url: "http://192.168.160.58/Olympics/api/Modalities/SearchByName?q=" + request.term,

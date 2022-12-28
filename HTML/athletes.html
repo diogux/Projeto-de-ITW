@@ -133,6 +133,7 @@
                     <td class="align-middle"><a href="" class="nome" style="text-decoration:none; color:black"
                             data-bind="text: Name, attr: {href:'./athletesDetails.html?id=' + Id }"></a></td>
                     <td class="align-middle" data-bind="html: $root.formatSex(Sex)"></td>
+                    <td class="align-middle" data-bind="html: $root.formatMedal(BestPosition)"></td>
                     <td class="text-end">
                         <a class="btn btn-default btn-light btn-xs"
                             data-bind="attr: { href:'./athletesDetails.html?id=' + Id }">

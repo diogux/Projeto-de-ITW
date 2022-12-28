@@ -52,7 +52,7 @@ var vm = function () {
     };
     $().ready(function () {
         $("#tagsCountries").autocomplete({
-            minlenght: 3,
+            minLenght: 3,
             source: function (request, response) {
                 $.ajax({
                     url: "http://192.168.160.58/Olympics/api/Countries/SearchByName?q=" + request.term,
