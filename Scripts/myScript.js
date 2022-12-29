@@ -1,7 +1,10 @@
 ﻿$().ready(function () {
     const carousel = new bootstrap.Carousel('#myCarousel', {
-        interval: 10000
+        interval: 1000
+
+    
     });
+    $('.carousel').carousel({interval:2000});
 });
 $(".Toggler").click(function () {
 
