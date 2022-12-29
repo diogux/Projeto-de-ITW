@@ -46,6 +46,8 @@
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="aboutus.html"><i
                                 class="fa fa-address-book-o text-danger"></i> About us</a></li>
                 </ul>
+                <div class="Toggler" id="toggler"> <i class="fa fa-sun-o fa-2x" aria-hidden="true"></i> </div>
+
             </div>
         </div>
     </nav>
@@ -131,7 +133,7 @@
                                 data-bind="attr: {src:Photo}" class="competitions-img" /></a>
 
                     </td>
-                    <td class="align-middle"> <a href="" style="text-decoration:none; color:black"
+                    <td class="align-middle"> <a href="" class="nome" style="text-decoration:none; color:black"
                             data-bind="text: Modality, attr: {href:'./ModalitiesDetails.html?id=' + Id }"></a> </td>
                     <td class="align-middle" data-bind="text:Results"></td>
                     <td style="padding-top:40px" class="text-end">
@@ -180,7 +182,9 @@
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="\lib\jquery-ui\dist\jquery-ui.js"></script>
 
+
     <script src="..\Scripts\competitions.js"></script>
+    <script src="..\Scripts\myScript.js"></script>
 </body>
 
 </html>
