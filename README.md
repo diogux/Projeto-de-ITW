@@ -5,6 +5,5 @@ TODO LIST:
 #- Favourites (Melhorar)
 #- About Us
 #- Footer
-#- Meter os Games em Cards
 
 
