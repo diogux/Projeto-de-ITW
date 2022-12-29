@@ -43,6 +43,30 @@
         .carousel-item:nth-child(4) {
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/New_national_stadium_tokyo_1.jpg');
         }
+
+        .carousel-item:nth-child(5) {
+            background-image: url('https://stillmed.olympics.com/media/Images/OlympicOrg/IOC/What_We_Do/Olympic_Legacy/Legacy_Stories/2019/11/05/Athens-2004/Athens-2004-Edition-Overview.jpg');
+        }
+
+        .carousel-item:nth-child(6) {
+            background-image: url('https://stillmed.olympics.com/media/Images/News/2022/07/25/London/2022-07-25-London-featured.jpg');
+        }
+
+        .carousel-item:nth-child(7) {
+            background-image: url('https://api.time.com/wp-content/uploads/2018/02/pyeongchang-winter-olympics-2018-opening-ceremony-01.jpg');
+        }
+
+        .carousel-caption>h5 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px #000;
+        }
+
+        body {
+            overflow: hidden;
+            /* Hide scrollbars */
+        }
     </style>
 </head>
 
@@ -87,28 +111,38 @@
             </div>
     </nav>
     <!-- Working Area -->
-    <div id="myCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" aria-label="Slide 1"
-                class="active" aria-current="true"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"
+                aria-label="Slide 7"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
+                <img src="..." class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Beijing 2008</div>
+                    <h5>Beijing 2008</h5>
                     <p>The 2008 Summer Olympics, officially the Games of the XXIX Olympiad and also
                         known as Beijing
                         2008, were an international multisport event held from 8 to 24 August 2008,
-                        in Beijing, China.
-                    </p>
+                        in Beijing, China.</p>
                 </div>
             </div>
             <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Vancouver 2010</div>
+                    <h5>Vancouver 2010</h5>
                     <p>The 2010 Winter Olympics, officially known as the XXI Olympic Winter Games
                         and also known as
                         Vancouver 2010, were an international winter multi-sport event held from
@@ -121,31 +155,60 @@
                 </div>
             </div>
             <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Rio de Janeiro 2016</div>
+                    <h5>Rio de Janeiro 2016</h5>
                     <p>The 2016 Summer Olympics, officially the Games of the XXXI Olympiad and also
                         known as Rio 2016,
                         was an international multi-sport event held from 5 to 21 August 2016 in Rio
-                        de Janeiro, Brazil.
-                    </p>
+                        de Janeiro, Brazil.</p>
                 </div>
             </div>
             <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Tokio 2020</div>
+                    <h5>Tokio 2020</h5>
                     <p>The 2020 Summer Olympics, officially the Games of the XXXII Olympiad and also
                         known as Tokyo
                         2020, was an international multi-sport event held from 23 July to 8 August
-                        2021 in Tokyo, Japan.
-                    </p>
+                        2021 in Tokyo, Japan.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Athens 2004</h5>
+                    <p>The 2004 Summer Olympics, officially known as the Games of the XXVIII Olympiad and also known as
+                        Athens 2004, were an international multi-sport event held from August 13 to 29, 2004 in Athens,
+                        Greece. </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>London 2012</h5>
+                    <p>The 2012 Summer Olympics, officially known as the Games of the XXX Olympiad and also known as
+                        London 2012, were an international multi-sport event held from July 27 to August 12, 2012 in
+                        London, United Kingdom. </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Pyeongchang 2018</h5>
+                    <p>The 2018 Winter Olympics, officially known as the XXIII Olympic Winter Games and also known as
+                        Pyeongchang 2018, were an international winter multi-sport event held from February 9 to 25,
+                        2018 in Pyeongchang County, Gangwon Province, South Korea. </p>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
