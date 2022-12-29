@@ -110,12 +110,12 @@
                     <div class="card-body text-center">
                         <h5 class="card-title text-center" data-bind="text:Name + ' ['+ Id + ']'   "></h5>
                         <p class=" card-text text-center">
-                            Esta Modalidade é kinda meh
+                            Click for Details
                         </p>
 
                         <button data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }"
                             id="heartbt" class="btn btn-favourite">
-                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o text-danger'}"
+                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart text-danger' : 'fa fa-heart-o text-danger'}"
                                 class="fa fa-heart-o" title="Selecione para adicionar aos favoritos"></i>
                         </button>
                     </div>
