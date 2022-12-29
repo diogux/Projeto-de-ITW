@@ -52,7 +52,7 @@ var vm = function () {
                 $("#Olympedia").hide();
             }
             if (data.Height == "NA") {
-                $("#Height").children(":last").text("Not Available");
+                $("#Height").hide()
             }
             if (data.Weight == "NA") {
                 $("#Weight").hide();

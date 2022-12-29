@@ -115,7 +115,7 @@
 
                         <button data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }"
                             id="heartbt" class="btn btn-favourite">
-                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o'}"
+                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o text-danger'}"
                                 class="fa fa-heart-o" title="Selecione para adicionar aos favoritos"></i>
                         </button>
                     </div>
