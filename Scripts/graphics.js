@@ -1,3 +1,9 @@
+let barChart;
+
+// Declare variables to store the original data and labels
+let originalData;
+let originalLabels;
+
 var Counter1 = [];
 var Name1 = [];
 
@@ -16,7 +22,11 @@ $.ajax({
             Name1.push(element.Name);
         });
 
+        // Store the original data and labels in separate variables
+        originalData = Counter1.slice();
+        originalLabels = Name1.slice();
 
+        // Sort the data and labels arrays by value
         Name1.sort(function (a, b) {
             return Counter1.indexOf(b) - Counter1.indexOf(a);
         });
@@ -39,7 +49,8 @@ function createBarChart(Counter, Name) {
         }
     }
 
-    let barChart = new Chart("bar-chart", {
+    // Assign the chart object to the global barChart variable
+    barChart = new Chart("bar-chart", {
         type: "bar",
         data: {
             labels: Name,
@@ -63,7 +74,11 @@ function createBarChart(Counter, Name) {
             },
         }
     });
+
 }
+
+
+
 
 var Counter2 = [];
 var Name2 = [];
