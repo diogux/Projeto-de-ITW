@@ -149,99 +149,105 @@ function createPieChart(Counter, Name) {
     });
 }
 
-var Counter3 = [];
-var Name3 = [];
+$(document).ready(function () {
+    var Counter3 = [];
+    var Name3 = [];
+    let pieChart;
 
-$.ajax({
-    type: 'GET',
-    url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    success: function (data, status, xhr) {
-        // Retrieve the country name and counter for each item in the data array
-        data.forEach(item => {
-            Name3.push(item.CountryName);
-            // Sum the counters for all medals for each country
-            let totalCounter = item.Medals.reduce((acc, medal) => acc + medal.Counter, 0);
-            Counter3.push(totalCounter);
-        });
-
-        // Sort the data in descending order by counter
-        Name3.sort(function (a, b) {
-            return Counter3[Name3.indexOf(b)] - Counter3[Name3.indexOf(a)];
-        });
-
-        // Call the createPieChart function with the updated data
-        createThirdChart(Counter3, Name3, 100);
-    }
-});
-
-function createThirdChart(Counter, Name, minMedals, maxMedals) {
-    // Filter the data based on the minMedals and maxMedals parameters
-    let filteredCounter = Counter.filter(counter => counter >= minMedals && counter <= maxMedals);
-    let filteredName = Name.filter((name, index) => Counter[index] >= minMedals && Counter[index] <= maxMedals);
-
-    let colors = [];
-
-    for (let i = 0; i < filteredCounter.length; i++) {
-        if (i % 3 === 0) {
-            colors.push('rgba(255, 255, 255, 1)');
-        } else if (i % 3 === 1) {
-            colors.push('rgba(0, 0, 255, 0.2)');
-        } else {
-            colors.push('rgba(128, 128, 128, 1)');
-        }
-    }
-
-    let pieChart = new Chart("medals", {
-        type: "pie",
-        data: {
-            labels: filteredName,
-            datasets: [{
-                data: filteredCounter,
-                label: 'Number of Medals per Country',
-                backgroundColor: colors,
-                backgroundColor: colors,
-                borderColor: 'black',
-                borderWidth: 1
-            }]
+    $.ajax({
+        type: 'GET',
+        url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        options: {
-            animations: {
-                tension: {
-                    duration: 1000,
-                    easing: 'linear',
-                    from: 1,
-                    to: 0,
-                    loop: true
-                }
-            },
+        success: function (data, status, xhr) {
+            // Retrieve the country name and counter for each item in the data array
+            data.forEach(item => {
+                Name3.push(item.CountryName);
+                // Sum the counters for all medals for each country
+                let totalCounter = item.Medals.reduce((acc, medal) => acc + medal.Counter, 0);
+                Counter3.push(totalCounter);
+            });
+
+            // Sort the data in descending order by counter
+            Name3.sort(function (a, b) {
+                return Counter3[Name3.indexOf(b)] - Counter3[Name3.indexOf(a)];
+            });
+
+            // Call the createPieChart function with the updated data
+            createThirdChart(Counter3, Name3, 100);
         }
     });
-}
+
+    function createThirdChart(Counter, Name, minMedals, maxMedals, pieChart) {
+        // Filter the data based on the minMedals and maxMedals parameters
+        let filteredCounter = Counter.filter(counter => counter >= minMedals && counter <= maxMedals);
+        let filteredName = Name.filter((name, index) => Counter[index] >= minMedals && Counter[index] <= maxMedals);
+
+        let colors = [];
+
+        for (let i = 0; i < filteredCounter.length; i++) {
+            if (i % 3 === 0) {
+                colors.push('rgba(255, 255, 255, 1)');
+            } else if (i % 3 === 1) {
+                colors.push('rgba(0, 0, 255, 0.2)');
+            } else {
+                colors.push('rgba(128, 128, 128, 1)');
+            }
+        }
+
+        // If a pie chart object already exists, update its data and options
+        if (pieChart) {
+            pieChart.data.labels = filteredName;
+            pieChart.data.datasets[0].data = filteredCounter;
+            pieChart.data.datasets[0].backgroundColor = colors;
+            pieChart.update();
+            return;
+        }
+
+        // Otherwise, create a new pie chart object
+        pieChart = new Chart("medals", {
+            type: "pie",
+            data: {
+                labels: filteredName,
+                datasets: [{
+                    data: filteredCounter,
+                    label: 'Number of Medals per Country',
+                    backgroundColor: colors,
+                    backgroundColor: colors,
+                    borderColor: 'black',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                animations: {
+                    tension: {
+                        duration: 1000,
+                        easing: 'linear',
+                        from: 1,
+                        to: 0,
+                        loop: true
+                    }
+                },
+            }
+        });
+    }
 
 
-// Add a submit event listener to the form
-// Add a submit event listener to the form
-// Add a submit event listener to the form
-document.getElementById('filterForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+    // Add a submit event listener to the form
+    var viewModel = {
+        minMedals: ko.observable(),
+        maxMedals: ko.observable(),
+        submit: function () {
+            // Call the createThirdChart function with the updated data
+            createThirdChart(Counter3, Name3, this.minMedals(), this.maxMedals());
+        }
+    };
 
-    // Get the values of the minMedalsInput and maxMedalsInput elements
-    let minMedals = document.getElementById('minMedalsInput').value;
-    let maxMedals = document.getElementById('maxMedalsInput').value;
+    // Apply the Knockout bindings
+    ko.applyBindings(viewModel);
+    window.onload = function () {
+        createPieChart(Counter2, Name2);
+    }
 
-    // Call the createThirdChart function with the updated data
-    createThirdChart(Counter3, Name3, minMedals, maxMedals);
 });
-
-
-
-
-
-window.onload = function () {
-    createPieChart(Counter2, Name2);
-}
-
-
