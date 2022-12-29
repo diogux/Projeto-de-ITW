@@ -102,26 +102,39 @@
             <div class="col-4">
                 <div class="card-deck card cardA">
                     <div class="card-body">
-                        <a href="#" data-bind="attr: { href:'./gameDetails.html?id=' + Id }"
-                            style="text-decoration: none; color:black">
-                            <div class="row" style="margin-bottom: 10px;">
-                                <h5 class="card-title" data-bind="text:Name"></h5>
-                                <p class="card-text">
-                                    <strong>Year:</strong> <span data-bind="text:Year"></span><br>
-                                    <strong>City:</strong> <span data-bind="text:CityName"></span><br>
-                                    <strong>Country:</strong> <span data-bind="text:CountryName"></span>
-                                </p>
+                        <div class="row">
+                            <div class="col-6 d-flex flex-column">
+                                <a href="#" data-bind="attr: { href:'./gameDetails.html?id=' + Id }"
+                                    style="text-decoration: none; color:black">
+                                    <div class="row">
+                                        <h5 class="card-title" data-bind="text:Name"></h5>
+                                        <p class="card-text">
+                                            <strong>Year:</strong> <span data-bind="text:Year"></span><br>
+                                            <strong>City:</strong> <span data-bind="text:CityName"></span><br>
+                                            <strong>Country:</strong> <span data-bind="text:CountryName"></span>
+                                        </p>
+                                    </div>
+                                    <div class="row pt-3">
+                                        <a href="#" class="btn btn-primary"
+                                            data-bind="attr: { href:'./gameDetails.html?id=' + Id }">View Details</a>
+                                        <button class="btn btn-favourite"
+                                            data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }">
+                                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o text-danger'}"
+                                                class="fa fa-heart-o"></i>
+                                        </button>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                        <a href="#" class="btn btn-primary" data-bind="attr: { href:'./gameDetails.html?id=' + Id }">
-                            View Details
-                        </a>
-                        <button class="btn btn-favourite"
-                            data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }">
-                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o text-danger'}"
-                                class="fa fa-heart-o"></i>
-                        </button>
+                            <div class="col-6">
+                                <a href="#" data-bind="attr: { href:'./gameDetails.html?id=' + Id }"
+                                    style="text-decoration: none; color:black">
+                                    <img class="img-thumbnail" data-bind="attr:{src: Logo}"
+                                        style="height:200px; width:100%; object-fit:contain; float:right;"><br />
+                                </a>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -160,6 +173,7 @@
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="\lib\jquery-ui\dist\jquery-ui.js"></script>
     <script src="..\Scripts\games.js"></script>
+    <script src="..\Scripts\gameDetails.html"></script>
 </body>
 
 </html>

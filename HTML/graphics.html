@@ -82,12 +82,12 @@
                     </div>
                     <div class="card-body">
                         <canvas style="height:550px; width:1500px" id="medals"></canvas>
-                        <form id="filterForm">
+                        <form data-bind="submit: submit">
                             <label for="minMedalsInput">Minimum number of medals:</label>
-                            <input type="number" id="minMedalsInput" name="minMedalsInput">
+                            <input type="number" id="minMedalsInput" name="minMedalsInput" data-bind="value: minMedals">
                             <br>
                             <label for="maxMedalsInput">Maximum number of medals:</label>
-                            <input type="number" id="maxMedalsInput" name="maxMedalsInput">
+                            <input type="number" id="maxMedalsInput" name="maxMedalsInput" data-bind="value: maxMedals">
                             <br>
                             <input type="submit" value="Filter">
                         </form>
