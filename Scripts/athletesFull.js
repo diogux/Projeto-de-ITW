@@ -52,10 +52,10 @@ var vm = function () {
                 $("#Olympedia").hide();
             }
             if (data.Height == "NA") {
-                $("#Height").hide()
+                $("#Height").children("div").last().text("Unknown")
             }
             if (data.Weight == "NA") {
-                $("#Weight").hide();
+                $("#Weight").children("div").last().text("Unknown")
             }
             if (data.Sex === "F") {
             $("#sex").html('<i class="Female fa fa-venus" aria-hidden="true"></i>');
@@ -65,6 +65,53 @@ var vm = function () {
             }
             if (data.medals == null) {
                 $("#medals").hide();
+            }
+            if (data.Competitions.Photo == null) {
+                $(".CompetitionPhoto").hide();
+            }
+
+if (data.BornDate == null) {
+    $("#age").children("div").last().text("Unknown")
+}
+
+            if (data.DiedDate != null) {
+                $("#DiedDate").show();
+                $("#age").text(new Date(data.DiedDate).getFullYear() - new Date(data.BornDate).getFullYear() + " (Passed Away)")
+                $("#DiedD").text( new Date(data.DiedDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }))
+
+            }
+            if (data.BornDate != null) {
+                $("#BornD").text( new Date(data.BornDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }))
+
+                if (data.BornDate == null) {
+                    $("#BornDate").children("div").last().text("Unknown")
+                }
+
+            }
+            if (data.DiedDate == null) {
+                $("#DiedDate").children("div").last().text("Unknown")
+                let age = new Date().getFullYear() - new Date(data.BornDate).getFullYear() + " years old"
+                if (age > 130) {
+                    $("#age").text("Unknown")}
+                $("#age").text(new Date().getFullYear() - new Date(data.BornDate).getFullYear() + " years old")
+
+            }
+            if (data.DiedPlace == null && data.DiedDate != null) {
+                $("#DiedPlace").children("div").last().text("Unknown")
+            }
+            if (data.DiedPlace == null && data.DiedDate == null) {
+                $("#DiedPlace").children("div").last().text("Unknown")
+            }
+
+
+            
+            if (data.BornPlace == null) {
+                $("#BornPlace").children("div").last().text("Unknown")
+            }
+            if (data.BornDate == null) {
+                $("#BornDate").children("div").last().text("Unknown")
+                $("#age").text("Unknown");
+                
             }
         });
     };

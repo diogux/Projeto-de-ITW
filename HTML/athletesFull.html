@@ -52,47 +52,70 @@
 
 
 
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
-        </div>
-        <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Id</div>
-            <div class="col-10" data-bind="text: Id"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Name</div>
-            <div class="col-10" data-bind="text: Name"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Sex</div>
-            <div class="col-10" id="sex"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" id="Height">
-            <div class="col-2">Height</div>
-            <div class="col-10" data-bind="text: Height() + ' cm'"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1 " id="Weight">
-            <div class="col-2">Weight</div>
-            <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" id="Olympedia">
-            <div class="col-2">Olympedia Link</div>
-            <div class="col-10" data-bind="text: Url"></div>
+        <div class="py-2 border-bottom mb-3 row">
+            <div class="col">
+                <h2 data-bind="text:Name()"></h2>
+            </div>
+            <div class="col pt-2" align="right"><a href="./athletes.html" class="btn btn-default btn-sm small"><i
+                        class="fa fa-list"></i>
+                    Back to List</a>
+            </div>
+
         </div>
 
 
-
-
-
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
-            <div class="col-2">Photo</div>
-            <div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br />
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none"
-                    data-bind="attr: { href: Photo }, text : Photo" target="_blank"></a>]
+        <div class="row">
+            <div class="col-8 lista">
+                <div class="row border-bottom mx-0 my-1 infos">
+                    <div class="col-2">Id</div>
+                    <div class="col-10" data-bind="text: Id"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos">
+                    <div class="col-2">Sex</div>
+                    <div class="col-10" id="sex"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos age">
+                    <div class="col-2">Age</div>
+                    <div class="col-10" id="age"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="Height">
+                    <div class="col-2">Height</div>
+                    <div class="col-10" data-bind="text: Height() + ' cm'"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos " id="Weight">
+                    <div class="col-2">Weight</div>
+                    <div class="col-10" data-bind="text: Weight() + ' Kg'"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="BornDate">
+                    <div class="col-2">Date of Birth</div>
+                    <div class="col-10" id="BornD"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="BornPlace">
+                    <div class="col-2">Place of Birth</div>
+                    <div class="col-10" data-bind="text: BornPlace"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos " id="DiedDate">
+                    <div class="col-2">Date of Death</div>
+                    <div class="col-10" id="DiedD"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos " id="DiedPlace">
+                    <div class="col-2">Place of Death</div>
+                    <div class="col-10" data-bind="text: DiedPlace"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1 infos" id="Olympedia">
+                    <div class="col-2">Olympedia Link <i class="fa fa-link" aria-hidden="true"></i></div>
+                    <div class="col-10"><a style="text-decoration:none; color:rgb(128, 9, 9)"
+                            data-bind="attr: {href: Url}, text: Url" id="link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 pb-2" align="center"><img id="fotinha" class="img-fluid rounded"
+                    data-bind="attr: {src: Photo}" alt="..." style="max-height:565px">
             </div>
         </div>
+
+
+
 
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -111,9 +134,9 @@
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Year</th>
-                                    <th scope="col">CityName</th>
-                                    <th scope="col">CountryName</th>
-                                    <th scope="col">Logo</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Country</th>
+                                    <th scope="col">Game Logo</th>
                                     <th scope="col" class="text-right"></th>
                                 </tr>
                             </thead>
@@ -123,7 +146,9 @@
                                         <p data-bind="text: Id"></p>
                                     </td>
                                     <td class="align-middle">
-                                        <p data-bind="text: Name"></p>
+                                        <p><a style="text-decoration:none; color:black"
+                                                data-bind="text: Name, attr: {href:'./gameDetails.html?id=' + Id}"></a>
+                                        </p>
                                     </td>
                                     <td class="align-middle">
                                         <p data-bind="text: Year"></p>
@@ -134,8 +159,9 @@
                                     <td class="align-middle">
                                         <p data-bind="text: CountryName"></p>
                                     </td>
-                                    <td class="img">
-                                        <img style="height:40px" data-bind="attr:{src: Logo}"></img>
+                                    <td class="align-middle">
+                                        <a href="" data-bind="attr:{href:'./gameDetails.html?id=' + Id}"> <img
+                                                style="height:40px" data-bind="attr:{src: Logo}"></img></a>
                                     </td>
                                     <td class="text-end">
                                     </td>
@@ -171,10 +197,13 @@
                                         <p data-bind="text: Id"></p>
                                     </td>
                                     <td class="align-middle">
-                                        <p data-bind="text: Name"></p>
+                                        <p><a style="text-decoration:none; color:black"
+                                                data-bind="text: Name, attr: {href:'./modalitiesDetails.html?id=' + Id}"></a>
+                                        </p>
                                     </td>
                                     <td class="img">
-                                        <img style="height:40px" data-bind="attr:{src: Photo}"></img>
+                                        <a href="" data-bind="attr:{href:'./ModalitiesDetails.html?id=' + Id}"> <img
+                                                style="height:40px" data-bind="attr:{src: Photo}"></img></a>
                                     </td>
 
                                     <td class="text-end">
@@ -200,31 +229,29 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Photo</th>
-                                    <th scope="col">Modality</th>
+                                    <th style="padding-left: 30px" scope="col" class="CompetitionPhoto">Photo</th>
+                                    <th style="padding-left: 0px" scope="col">Modality</th>
                                     <th scope="col">Results</th>
                                     <th scope="col" class="text-right"></th>
                                 </tr>
                             </thead>
-                            <tbody data-bind="foreach:Competitions">
+                            <tbody data-bind="foreach: Competitions">
                                 <tr>
-                                    <td class="align-middle">
-                                        <p data-bind="text: Id"></p>
+                                    <td class="align-middle" data-bind="text:Id"></td>
+                                    <td class="align-middle"><a href="" class="nome"
+                                            style="text-decoration:none; color:black"
+                                            data-bind="text: Name, attr: {href:'./competitionsDetails.html?id=' + Id }"></a>
                                     </td>
-                                    <td class="align-middle">
-                                        <p data-bind="text: Name"></p>
+                                    <td class="CompetitionPhoto"> <a
+                                            data-bind="attr: { href:'./competitionsDetails.html?id=' + Id }"><img
+                                                data-bind="attr: {src:Photo}" class="competitions-img" /></a>
+
                                     </td>
-                                    <td class="img">
-                                        <img style="height:40px" data-bind="attr:{src: Photo}"></img>
+                                    <td class="align-middle"> <a href="" style="text-decoration:none; color:black"
+                                            data-bind="text: Modality, attr: {href:'./ModalitiesDetails.html?id=' + Id }"></a>
                                     </td>
-                                    <td class="align-middle">
-                                        <p data-bind="text: Modality"></p>
-                                    </td>
-                                    <td class="align-middle">
-                                        <p data-bind="text: Results"></p>
-                                    </td>
-                                    <td class="text-end">
-                                    </td>
+                                    <td class="align-middle" data-bind="text:Results"></td>
+                                    <td class="text-end"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -274,7 +301,6 @@
         </div>
 
         <!-- /ko -->
-        <a href="./athletes.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
 
     </div>
     <!-- Modal -->

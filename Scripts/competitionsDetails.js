@@ -15,7 +15,7 @@ var vm = function () {
     self.Photo = ko.observable('');
     self.Url = ko.observable('');
     self.Participant = ko.observableArray([]);
-
+    
     //--- Page Events
     self.activate = function (id) {
         console.log('CALL: getGame...');
