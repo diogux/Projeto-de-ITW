@@ -5,5 +5,8 @@ TODO LIST:
 #- Favourites (Melhorar)
 #- About Us
 #- Footer
+#- Filtros
+#- NewsLetter
+
 
 
