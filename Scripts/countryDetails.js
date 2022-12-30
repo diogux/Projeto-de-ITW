@@ -17,6 +17,13 @@ var vm = function () {
     self.Events = ko.observable([]);
     self.Organizer = ko.observable([]);
 
+    self.formatImage = function (image) {
+        if (image == null)
+        return '<img class="competitions-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" />';
+if (image != null)
+        return '<img class="competitions-img"  src="' + image + '" />';
+    }
+
     //--- Page Events
     self.activate = function (id) {
         console.log('CALL: getCountries...');

@@ -123,7 +123,7 @@
                         data-bind="attr: { href: Flag }, text : Flag" target="_blank"></a>]
                 </div>
             </div> -->
-        <div class="row border-bottom mx-0  my-1">
+        <div class="row  mx-0  my-1">
             <div class="col-2">Location:</div>
             <div class="col-10">
                 <iframe style="width:85%; height: 400px;" class="myFrame"
@@ -138,7 +138,7 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Participated in
+                        Participants
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -149,6 +149,11 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
+
+                                    <th scope="col">Year</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Country</th>
+                                    <th scope="col">Logo</th>
                                     <th scope="col" class="text-right"></th>
                                 </tr>
                             </thead>
@@ -158,10 +163,24 @@
                                         <p data-bind="text: Id"></p>
                                     </td>
                                     <td class="align-middle">
-                                        <a class="btn margin-left slide"
-                                            data-bind="attr: { href: './gameDetails.html?id='+Id },text: Name">
+                                        <a href="" style="text-decoration:none; color:black"
+                                            data-bind="text: Name, attr: {href:'./gameDetails.html?id=' + Id }"></a>
+                                    </td>
+                                    <td class="align-middle" data-bind="text: Year"></td>
+                                    <td class="align-middle" data-bind="text: CityName"></td>
+                                    <td class="align-middle" data-bind="text: CountryName"></td>
+                                    <td class="align-middle">
+                                        <a href="" style="text-decoration:none; color:black"
+                                            data-bind="attr: {href:'./gameDetails.html?id=' + Id }"> <img
+                                                class="img-thumbnail" data-bind="attr:{src: Logo}" style="width:50px" />
                                         </a>
                                     </td>
+                                    <td class="text-end">
+                                    </td>
+
+
+
+
                                 </tr>
                             </tbody>
                         </table>
@@ -184,8 +203,10 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Photo</th>
-                                    <th scope="col" class="text-right"></th>
+                                    <th scope="col">Modality</th>
+                                    <th scope="col">Results</th>
+                                    <th></th>
+
                                 </tr>
                             </thead>
                             <tbody data-bind="foreach:Events">
@@ -194,13 +215,17 @@
                                         <p data-bind="text: Id"></p>
                                     </td>
                                     <td class="align-middle">
-                                        <a class="btn margin-left slide"
-                                            data-bind="attr: { href: './competitionsDetails.html?id='+Id },text: Name">
-                                        </a>
+                                        <a href="" style="text-decoration:none; color:black"
+                                            data-bind="text: Name, attr: {href:'./competitionsDetails.html?id=' + Id }"></a>
                                     </td>
 
-                                    <td class="text-end">
+                                    <td class="align-middle"> <a href="" style="text-decoration:none; color:black"
+                                            data-bind="text: Modality, attr: {href:'./ModalitiesDetails.html?id=' + Id }"></a>
                                     </td>
+                                    <td class="align-middle" data-bind="text: Results"></td>
+                                    <td>
+
+
                                 </tr>
                             </tbody>
                         </table>
@@ -222,18 +247,36 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Photo</th>
-                                    <th scope="col">Modality</th>
-                                    <th scope="col">Results</th>
+                                    <th scope="col">Year</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Logo</th>
                                     <th scope="col" class="text-right"></th>
                                 </tr>
                             </thead>
-                            <tbody data-bind="foreach:Organizer">
+                            <tbody data-bind="foreach: Organizer">
                                 <tr>
 
                                     <td class="align-middle">
-                                        <p data-bind="text: Name"></p>
+                                        <p data-bind="text: Id"></p>
                                     </td>
+                                    <td class="align-middle">
+                                        <a href="" style="text-decoration:none; color:black"
+                                            data-bind="text: Name, attr: {href:'./gameDetails.html?id=' + Id }"></a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <p data-bind="text: Year"></p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <p data-bind="text: CityName"></p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a href="" style="text-decoration:none; color:black"
+                                            data-bind="attr: {href:'./gameDetails.html?id=' + Id }"> <img
+                                                class="img-thumbnail" data-bind="attr:{src: Logo}" style="width:50px" />
+                                        </a>
+                                    </td>
+                                    <td></td>
+
 
                                 </tr>
                             </tbody>
@@ -247,6 +290,54 @@
         </div>
 
         <!-- /ko -->
+    </div>
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId"
+                        style="font-size:36px;font-family:cursive;color:rgb(85, 85, 85)"><b>
+                            Subscribe
+                            to the Olympics
+                            Newsletter
+                        </b></h5>
+                    <img src="https://images.procon.org/wp-content/uploads/olympic-rings-1-1024x680.jpeg"
+                        class="img-thumbnail" style="width:300px" alt="">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+
+                        <form action="">
+                            <div>
+                                <span
+                                    style="font-family:'Times New Roman', Times, serif;font-size:24px;text-decoration:underline">
+                                    Stay up to date on all things Olympic by signing up for our newsletter.
+                                </span>
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email Adress</label>
+                                <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
+                                    placeholder="example@gmail.com" required>
+                            </div>
+                            <div class="mb-3">
+
+                                <label for="validationDefault01" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="validationDefault01" value=""
+                                    placeholder="Insert your name" required>
+                            </div>
+                            <p style="height:30px;text-align:center;padding-bottom:0">
+                                <button type="submit" id="Subscribe" class="btn btn-lg btn-dark">Subscribe</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -267,6 +358,9 @@
     <nav class="navbar navbar-light bg-light fixed-bottom">
         <div class="container small">
             <div class="navbar-text">&copy; Introdução as Tecnologias Web - 2022/23</div>
+            <div><a style="text-decoration:none;color:black" href="" class="nome" data-bs-toggle="modal"
+                    data-bs-target="#modalId">
+                    <b> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Subscribe to our Newsletter</b></a></div>
             <div class="navbar-nav">
                 <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de
                         Aveiro</a>

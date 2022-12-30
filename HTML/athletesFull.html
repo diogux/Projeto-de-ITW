@@ -116,7 +116,55 @@
             </div>
         </div>
 
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId"
+                            style="font-size:36px;font-family:cursive;color:rgb(85, 85, 85)"><b>
+                                Subscribe
+                                to the Olympics
+                                Newsletter
+                            </b></h5>
+                        <img src="https://images.procon.org/wp-content/uploads/olympic-rings-1-1024x680.jpeg"
+                            class="img-thumbnail" style="width:300px" alt="">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
 
+                            <form action="">
+                                <div>
+                                    <span
+                                        style="font-family:'Times New Roman', Times, serif;font-size:24px;text-decoration:underline">
+                                        Stay up to date on all things Olympic by signing up for our newsletter.
+                                    </span>
+                                </div>
+                                <br>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Email Adress</label>
+                                    <input type="email" class="form-control" name="" id=""
+                                        aria-describedby="emailHelpId" placeholder="example@gmail.com" required>
+                                </div>
+                                <div class="mb-3">
+
+                                    <label for="validationDefault01" class="form-label">First name</label>
+                                    <input type="text" class="form-control" id="validationDefault01" value=""
+                                        placeholder="Insert your name" required>
+                                </div>
+                                <p style="height:30px;text-align:center;padding-bottom:0">
+                                    <button type="submit" id="Subscribe" class="btn btn-lg btn-dark">Subscribe</button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <div class="accordion" id="accordionExample">
@@ -324,6 +372,9 @@
     <nav class="navbar navbar-light bg-light fixed-bottom">
         <div class="container small">
             <div class="navbar-text">&copy; Introdução as Tecnologias Web - 2022/23</div>
+            <div><a style="text-decoration:none;color:black" href="" class="nome" data-bs-toggle="modal"
+                    data-bs-target="#modalId">
+                    <b> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Subscribe to our Newsletter</b></a></div>
             <div class="navbar-nav">
                 <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a>
                 </div>
