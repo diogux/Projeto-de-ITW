@@ -27,13 +27,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="athletes.html"><i
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="athletes.html"><i
                                 class="fa fa-user-o text-warning"></i> Athletes</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="competitions.html"><i
                                 class="fa fa-trophy"></i> Competitions</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html"><i
                                 class=" fa fa-flag-o text-danger"></i> Countries</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="games.html"><i
+                    <li class="nav-item"><a class="nav-link " aria-current="page" href="games.html"><i
                                 class="fa fa-map-marker text-success"></i> Games</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i
                                 class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
@@ -65,8 +65,7 @@
             <div class="col pt-2" align="right"><a href="./athletes.html" class="btn btn-default btn-sm small"><i
                         class="fa fa-list"></i>
                     Back to List</a>
-                <a data-bind="attr: { href:'./athletesFull.html?id=' + Id() }" class="btn btn-default btn-sm small"><i
-                        class="fa fa-th"></i> Full Details</a>
+
             </div>
 
         </div>
@@ -116,6 +115,8 @@
                             data-bind="attr: {href: Url}, text: Url" id="link"></a>
                     </div>
                 </div>
+                <div> <a data-bind="attr: { href:'./athletesFull.html?id=' + Id() }"
+                        class="btn btn-default btn-sm small"><i class="fa fa-th"></i> Full Athlete Details</a></div>
             </div>
             <div class="col-4" align="center"><a data-bind="attr: {href: Photo}"><img id="fotinha"
                         class="img-fluid rounded" alt="..." style="max-height:565px">

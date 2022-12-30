@@ -30,9 +30,9 @@
                                 class="fa fa-user-o text-warning"></i> Athletes</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="competitions.html"><i
                                 class="fa fa-trophy"></i> Competitions</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html"><i
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="countries.html"><i
                                 class=" fa fa-flag-o text-danger"></i> Countries</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="games.html"><i
+                    <li class="nav-item"><a class="nav-link " aria-current="page" href="games.html"><i
                                 class="fa fa-map-marker text-success"></i> Games</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i
                                 class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
@@ -48,32 +48,83 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
+        <div class="py-2 border-bottom mb-3 row">
+            <div class="col">
+                <h2 data-bind="text:Name()"></h2>
+            </div>
+            <div class="col pt-2" align="right"><a href="./countries.html" class="btn btn-default btn-sm small"><i
+                        class="fa fa-list"></i>
+                    Back to List</a>
+
+            </div>
+
         </div>
+
         <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Country Id</div>
-            <div class="col-10" data-bind="text:Id"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Name</div>
-            <div class="col-10" data-bind="text:Name"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">IOC</div>
-            <div class="col-10" data-bind="text:IOC"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Flag() != '' && Flag() != null">
-            <div class="col-2">Flag</div>
-            <div class="small col-10">
-                <img style="height:200px" class="img" data-bind="attr:{src: Flag}"><br />
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none"
-                    data-bind="attr: { href: Flag }, text : Flag" target="_blank"></a>]
+
+        <div class="row">
+            <div class="col-8 lista">
+                <div class="row border-bottom mx-0 my-1 infos">
+                    <div class="col-2">Id</div>
+                    <div class="col-10" data-bind="text: Id"></div>
+                </div>
+
+                <div class="row border-bottom mx-0 my-1 infos">
+                    <div class="col-2">Name</div>
+                    <div class="col-10" data-bind="text: Name"></div>
+                </div>
+
+                <div class="row border-bottom mx-0 my-1 infos">
+                    <div class="col-2">IOC</div>
+                    <div class="col-10" data-bind="text: IOC"></div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="col-4 pb-2" align="center" data-bind="visible: Flag() != '' && Flag() != null"><img
+                    style="border:1px solid rgb(197, 195, 195); max-height:200px;" id="" class="img-thumbnail rounded"
+                    data-bind="attr: {src: Flag}" alt="...">
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class=" row border-bottom mx-0 my-1">
+                <div class="col-2">Country Id</div>
+                <div class="col-10" data-bind="text:Id"></div>
+            </div>
+            <div class="row border-bottom mx-0  my-1">
+                <div class="col-2">Name</div>
+                <div class="col-10" data-bind="text:Name"></div>
+            </div>
+            <div class="row border-bottom mx-0  my-1">
+                <div class="col-2">IOC</div>
+                <div class="col-10" data-bind="text:IOC"></div>
+            </div>
+            <div class="row border-bottom mx-0  my-1" data-bind="visible: Flag() != '' && Flag() != null">
+                <div class="col-2">Flag</div>
+                <div class="small col-10">
+                    <img style="height:200px" class="img" data-bind="attr:{src: Flag}"><br />
+                    <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none"
+                        data-bind="attr: { href: Flag }, text : Flag" target="_blank"></a>]
+                </div>
+            </div> -->
         <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Localização:</div>
+            <div class="col-2">Location:</div>
             <div class="col-10">
                 <iframe style="width:85%; height: 400px;" class="myFrame"
                     data-bind="attr:{src:'https://www.google.com/maps/embed/v1/place?key=AIzaSyAJLUALI140YZxYaSh3TN8hedXJEsm+1Bkg&q=' + Name()}"></iframe>
@@ -143,7 +194,9 @@
                                         <p data-bind="text: Id"></p>
                                     </td>
                                     <td class="align-middle">
-                                        <p data-bind="text: Name"></p>
+                                        <a class="btn margin-left slide"
+                                            data-bind="attr: { href: './competitionsDetails.html?id='+Id },text: Name">
+                                        </a>
                                     </td>
 
                                     <td class="text-end">
@@ -194,7 +247,6 @@
         </div>
 
         <!-- /ko -->
-        <a href="./countries.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -216,7 +268,8 @@
         <div class="container small">
             <div class="navbar-text">&copy; Introdução as Tecnologias Web - 2022/23</div>
             <div class="navbar-nav">
-                <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a>
+                <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de
+                        Aveiro</a>
                 </div>
             </div>
         </div>

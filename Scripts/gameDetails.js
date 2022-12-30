@@ -3,7 +3,7 @@ var vm = function () {
     console.log('ViewModel initiated...');
     //---Variáveis locais
     var self = this;
-    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/Games/');
+    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/Games/FullDetails?id=');
     self.displayName = 'Olympic Games edition Details';
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
@@ -12,10 +12,50 @@ var vm = function () {
     self.CountryName = ko.observable('');
     self.Logo = ko.observable('');
     self.Name = ko.observable('');
+    self.City = ko.observable('');
     self.Photo = ko.observable('');
     self.Season = ko.observable('');
-    self.Year = ko.observableArray('');
+    self.Year = ko.observable('');
     self.Url = ko.observable('');
+    self.Athletes = ko.observableArray([]);
+    self.Medals = ko.observableArray([]);
+    self.Competitions = ko.observableArray([]);
+    self.Modalities = ko.observableArray([]);
+
+    self.formatSex = function(sex) {
+        const iconName = sex == "M" ? "mars" : "venus";
+        let sexo = sex == "M" ? "M" : "F";
+        const icon = `${sexo}  <i class="fa fa-${iconName}" aria-hidden="true"></i>`
+        return icon;
+
+    };
+
+   self.formatImage = function (image) {
+        if (image == null)
+        return '<img class="competitions-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" />';
+if (image != null)
+        return '<img class="competitions-img"  src="' + image + '" />';
+    }
+
+    self.formatPosition = function(med) {
+        if(med == "1")
+          return '<img style="width:40px;height:37px;" src="/images/Medal1.png" />';
+        if(med == "2")
+          return '<img style="width:40px;height:37px " src="/images/Medal2.png" />';
+        if(med == "3")
+          return '<img style="width:40px;height:37px;" src="/images/Medal3.png" />';
+        if(med == "4")
+          return "No Medal";
+    };
+
+    self.formatMedal = function(med) {
+        if(med == "1")
+            return '<img style="width:40px;height:37px;" src="/images/Medal1.png" />';
+        if(med == "2")
+            return '<img style="width:40px;height:37px " src="/images/Medal2.png" />';
+        if(med == "3")
+            return '<img style="width:40px;height:37px;" src="/images/Medal3.png" />';
+    }
 
     //--- Page Events
     self.activate = function (id) {
@@ -31,8 +71,21 @@ var vm = function () {
             self.Photo(data.Photo);
             self.Season(data.Season);
             self.Year(data.Year);
+            self.Url(data.Url);
+            self.Athletes(data.Athletes);
+            self.Medals(data.Medals);
+            self.Competitions(data.Competitions);
+            self.Modalities(data.Modalities);
+            self.City(data.City);
+            
+
         });
+        
     };
+    self.Title = ko.computed(function () {
+        return 'Game of' + ' ' + self.Name();
+    }, self);
+
 
     //--- Internal functions
     function ajaxHelper(uri, method, data) {

@@ -104,6 +104,7 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             self.SetFavourites();     
+        
    });
     };
 

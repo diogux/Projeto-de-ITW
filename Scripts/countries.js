@@ -69,7 +69,7 @@ var vm = function () {
                 });
             },
             select: function (event, ui) {
-                window.location.href = "countriesDetails.html?id=" + ui.item.value;
+                window.location.href = "countryDetails.html?id=" + ui.item.value;
             },
         }).find("li").css({ width: "150px" });
     });
