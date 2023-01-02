@@ -246,6 +246,9 @@ $(document).ready(function () {
 
     // Apply the Knockout bindings
     ko.applyBindings(viewModel);
+
+
+    
     window.onload = function () {
         createPieChart(Counter2, Name2);
     }
