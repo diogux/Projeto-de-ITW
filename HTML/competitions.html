@@ -177,8 +177,8 @@
                     <td class="align-middle" data-bind="text:Id"></td>
                     <td class="align-middle"><a href="" class="nome" style="text-decoration:none; color:black"
                             data-bind="text: Name, attr: {href:'./competitionsDetails.html?id=' + Id }"></a></td>
-                    <td> <a data-bind="attr: { href:'./competitionsDetails.html?id=' + Id }"><img
-                                data-bind="attr: {src:Photo}" class="competitions-img" /></a>
+                    <td> <a
+                            data-bind="html: $root.formatImage(Photo),attr: {href: './competitionsDetails.html?id=' + Id }"></a>
 
                     </td>
                     <td class="align-middle"> <a href="" class="nome" style="text-decoration:none; color:black"
@@ -209,7 +209,9 @@
                     </h5>
                 </div>
                 <div class="modal-body text-center">
-                    <i class="fa fa-spin fa-3x fa-refresh"></i>
+                    <img style="width:150px" src="https://i.gifer.com/origin/f2/f260f2bad4a3f8741a4392cf28c3e60c.gif"
+                        alt="">
+
                 </div>
             </div>
         </div>

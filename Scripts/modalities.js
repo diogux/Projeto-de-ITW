@@ -74,12 +74,12 @@ var vm = function () {
         else {
             self.favourites.remove(id);
         }
-        localStorage.setItem("fav4", JSON.stringify(self.favourites()));
+        localStorage.setItem("fav5", JSON.stringify(self.favourites()));
     };
     self.SetFavourites = function () {
         let storage;
         try {
-            storage = JSON.parse(localStorage.getItem("fav4"));
+            storage = JSON.parse(localStorage.getItem("fav5"));
         }
         catch (e) {
             ;
@@ -108,6 +108,7 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             self.Photo(data.Photo)
+            self.SetFavourites();
             //if (data.Photo == null) {
               //  $(".cardImage").attr("src", "../images/jsp.png");}
 self.SetFavourites();        });

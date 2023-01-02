@@ -5,7 +5,7 @@ var vm = function () {
     var self = this;
     self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/athletes');
     //self.baseUri = ko.observable('http://localhost:62595/api/drivers');
-    self.displayName = 'Olympic Athletes List';
+    self.displayName = ko.observable('Olympic Athletes List');
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     self.records = ko.observableArray([]);
@@ -181,6 +181,39 @@ var vm = function () {
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
             self.SetFavourites();
+            if (sortby == 'Id'){
+                self.displayName('Olympic Games Athletes Sorted List (Id)')
+            }
+            if (sortby == 'NameUp'){
+                self.displayName('Olympic Games Athletes Sorted List (Name Ascending)')
+            }
+            if (sortby == 'NameDn'){
+                self.displayName('Olympic Games Athletes Sorted List (Name Descending)')
+            }
+            if (sortby == 'HeightUp'){
+                self.displayName('Olympic Games Athletes Sorted List (Height Ascending)')
+            }
+            if (sortby == 'HeightDn'){
+                self.displayName('Olympic Games Athletes Sorted List (Height Descending)')
+            }
+            if (sortby == 'SexUp'){
+                self.displayName('Olympic Games Athletes Sorted List (Female First)')
+            }
+            if (sortby == 'SexDn'){
+                self.displayName('Olympic Games Athletes Sorted List (Male First)')
+            }
+            if (sortby == 'BornDateUp'){
+                self.displayName('Olympic Games Athletes Sorted List (Born Date Ascending)')
+            }
+            if (sortby == 'BornDateDn'){
+                self.displayName('Olympic Games Athletes Sorted List (Born Date Descending)')
+            }
+            if (sortby == 'DiedDateUp'){
+                self.displayName('Olympic Games Athletes Sorted List (Died Date Ascending)')
+            }
+            if (sortby == 'DiedDateDn'){
+                self.displayName('Olympic Games Athletes Sorted List (Died Date Descending)')
+            }
             
         });
     };

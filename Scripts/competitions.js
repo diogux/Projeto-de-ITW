@@ -64,6 +64,12 @@ var vm = function () {
             self.favourites(storage);
         }
     };
+    self.formatImage = function (image) {
+        if (image == null)
+        return '<img class="competitions-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" />';
+if (image != null)
+        return '<img class="competitions-img"  src="' + image + '" />';
+    }
     $().ready(function () {
         $("#tagsCompetitions").autocomplete({
             minLenght: 3,
