@@ -200,7 +200,7 @@ var vm = function () {
         }
         else {self.activate(pg);}
     }
-    $("#divshow").click(function(){
+    $("#remover").click(function(){
         self.activate(1)
         $("#divshow").addClass("d-none")
     })

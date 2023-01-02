@@ -88,7 +88,7 @@ var vm = function () {
        
         $().ready(function () {
             $("#tagsAthletes").autocomplete({
-                minLenght: 3,
+                minLength: 3,
                 source: function (request, response) {
                     $.ajax({
                         url: "http://192.168.160.58/Olympics/api/Athletes/SearchByName?q=" + request.term,
@@ -167,6 +167,23 @@ var vm = function () {
         });
     };
 
+    self.activate2 = function (id, sortby='name') {
+        console.log('CALL: getGames...');
+        var composedUri = self.baseUri() + "?page=" + id + "&pageSize=" + self.pagesize() + "&sortby=" + sortby;
+        ajaxHelper(composedUri, 'GET').done(function (data) {
+            console.log(data);
+            hideLoading();
+            self.records(data.Records);
+            self.currentPage(data.CurrentPage);
+            self.hasNext(data.HasNext);
+            self.hasPrevious(data.HasPrevious);
+            self.pagesize(data.PageSize)
+            self.totalPages(data.TotalPages);
+            self.totalRecords(data.TotalRecords);
+            self.SetFavourites();
+            
+        });
+    };
 
     
 
@@ -220,15 +237,30 @@ var vm = function () {
     };
 
     //--- start ....
-    showLoading();
+    showLoading();    
+    $("#tagsAthletes").val("");
+
     var pg = getUrlParameter('page');
-    console.log(pg);
-    if (pg == undefined)
-        self.activate(1);
-    else {
-        self.activate(pg);
+    self.sortby = ko.observable(getUrlParameter('sortby'))
+console.log(pg);
+if (pg == undefined){
+    if (self.sortby()!=undefined){
+        self.activate2(1, self.sortby());
+        $("#divshow").removeClass("d-none")
     }
-    console.log("VM initialized!");
+    else  {self.activate(1);}
+}
+else {
+    if (self.sortby()!=undefined){
+        self.activate2(pg, self.sortby())
+        $("#divshow").removeClass("d-none")
+    }
+    else {self.activate(pg);}
+}
+$("#remover").click(function(){
+    $("#divshow").addClass("d-none")
+})
+
 };
 
 $(document).ready(function () {

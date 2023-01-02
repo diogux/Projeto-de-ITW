@@ -73,27 +73,12 @@
                 <span data-bind="html: 'Games: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
             </p>
 
-            <div class="col-4 my-0 pt-3">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
-                    <button type="button" id="divshow" class="d-none btn btn-danger"><i class="fa fa-warning"
-                            aria-hidden="true"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a id="summer" data-bind="attr:{href:'./games.html?season=1'}"
-                                class="dropdown-item">Summer</a></li>
-                        <li><a id="winter" data-bind="attr:{href:'./games.html?season=2'}"
-                                class="dropdown-item">Winter</a></li>
-                    </ul>
-                </div>
-            </div>
 
 
 
 
 
-            <div class="col-4 my-0 pt-3">
+            <div class="col-8 my-0 pt-3">
                 <ul class="pagination float-end">
                     <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
                     <li class="page-item float-end"><a class="page-link" title="First Page"
@@ -121,7 +106,29 @@
                 </ul>
             </div>
         </div>
+
         <!-- /ko -->
+
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Season Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a id="summer" data-bind="attr:{href:'./games.html?season=1'}" class="dropdown-item">Summer</a>
+                </li>
+                <li><a id="winter" data-bind="attr:{href:'./games.html?season=2'}" class="dropdown-item">Winter</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="d-none pt-0 ps-0" id="divshow"><a style="text-decoration:none" href="games.html"><span id="remover"
+                    style="color:red"><i class="fa fa-times" aria-hidden="true"></i> Remove Filter</span></a>
+        </div>
+
+
+
+
 
         <div class="row" data-bind="foreach: records">
             <div class="col-4">
@@ -140,7 +147,7 @@
                                         </p>
                                     </div>
                                     <div class="row pt-3 ps-1">
-                                        <a href="#" class="btn btn-primary"
+                                        <a href="#" class="btn btn-secondary"
                                             data-bind="attr: { href:'./gameDetails.html?id=' + Id }">View Details</a>
                                         <button class="btn btn-favourite"
                                             data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }">
