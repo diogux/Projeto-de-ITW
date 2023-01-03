@@ -38,11 +38,12 @@
                                 class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="graphics.html"><i
                                 class="fa fa-bar-chart text-primary"></i> Statistics</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="favorites.html"><i
-                                class="fa fa-heart-o text-danger"></i> Favorites</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="aboutus.html"><i
-                                class="fa fa-address-book-o text-danger"></i> About us</a></li>
+
                 </ul>
+                <div class="pe-3"><a class="nav-link" aria-current="page" href="favorites.html"><i
+                            class="fa fa-heart-o text-danger"></i> Favorites</a></div>
+                <div class="Toggler" id="toggler" style="cursor:pointer"> <i class="fa fa-sun-o fa-2x"
+                        aria-hidden="true"></i> </div>
             </div>
         </div>
     </nav>
@@ -66,49 +67,142 @@
                     <div class="col-2">Modalitie Id</div>
                     <div class="col-10" data-bind="text: Id"></div>
                 </div>
-            </div>
-            <div class="col-8 lista">
                 <div class="row border-bottom mx-0 my-1 infos">
                     <div class="col-2">Name</div>
                     <div class="col-10" data-bind="text: Name"></div>
+                </div>
+                <div class="accordion pt-2" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Modality Competitions
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <table class="table table-striped table-sm small">
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Results</th>
+                                            <th scope="col">Photo</th>
+                                            <th scope="col" class="text-right"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach:Modalities">
+                                        <tr>
+                                            <td class="align-middle">
+                                                <p data-bind="text: Id"></p>
+                                            </td>
+                                            <td class="align-middle">
+                                                <p><a style="text-decoration:none; color:black"
+                                                        data-bind="text: Name, attr: {href:'./modalitiesDetails.html?id=' + Id}"></a>
+                                                </p>
+                                            </td>
+                                            <td class="align-middle" data-bind="text: Results"></td>
+
+                                            <td class="img">
+                                                <a href="" data-bind="attr:{href:'./ModalitiesDetails.html?id=' + Id}">
+                                                    <img style="height:40px" data-bind="attr:{src: Photo}"></img></a>
+                                            </td>
+
+                                            <td class="text-end">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-4" align="center"><a data-bind="attr: {href: Photo}"><img data-bind="attr: {src: Photo}"
                         class="img-fluid rounded" alt="..." style="max-height:565px">
                 </a></div>
             <div class="col-8">
-                <p>Competitons:</p>
-                <table class="table table-striped table-sm small">
-                    <thead class="bg-dark text-light">
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Name</th>
 
-                            <th scope="col">Results</th>
-                            <th scope="col">Photo</th>
-                            <th scope="col" class="text-right"></th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach:Modalities">
-                        <tr>
-                            <td class="align-middle">
-                                <p data-bind="text: Id"></p>
-                            </td>
-                            <td class="align-middle" data-bind="text: Name"></td>
-                            <td class="align-middle" data-bind="text: Results"></td>
-                            <td>
-                                <a href="" style="text-decoration:none; color:black"
-                                    data-bind="attr: {href:'./gameDetails.html?id=' + Id }"> <img class="img-thumbnail"
-                                        data-bind="attr:{src: Photo}" style="width:60px;border-radius:100%" />
-                                </a>
-                            </td>
-                            <td class="text-end">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- /ko -->
     </div>
     <!-- Modal -->
@@ -132,9 +226,15 @@
     <nav class="navbar navbar-light bg-light fixed-bottom">
         <div class="container small">
             <div class="navbar-text">&copy; Introdução as Tecnologias Web - 2022/23</div>
+            <div><a style="text-decoration:none;color:black" href="aboutus.html" class="nome">
+                    <b> <i class="fa fa-address-book" aria-hidden="true"></i> About Us</b></a>
+            </div>
+
+
             <div><a style="text-decoration:none;color:black" href="" class="nome" data-bs-toggle="modal"
                     data-bs-target="#modalId">
-                    <b> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Subscribe to our Newsletter</b></a></div>
+                    <b> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Subscribe to our Newsletter</b></a>
+            </div>
             <div class="navbar-nav">
                 <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a>
                 </div>
@@ -193,6 +293,7 @@
     <script src="/lib/knockout/dist/knockout-latest.min.js"></script>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="..\Scripts\modalitiesDetails.js"></script>
+    <script src="..\Scripts\myScript.js"></script>
 </body>
 
 </html>

@@ -113,6 +113,11 @@ if (data.BornDate == null) {
                 $("#age").text("Unknown");
                 
             }
+            if (data.Photo != null) {
+                $("#fotinha").attr("src", data.Photo);
+            } else {
+                $("#fotinha").attr("src", "https://feb.kuleuven.be/drc/LEER/visiting-scholars-1/image-not-available.jpg/image");
+            }
         });
     };
 

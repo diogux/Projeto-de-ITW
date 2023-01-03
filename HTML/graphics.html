@@ -39,13 +39,14 @@
                                 class="fa fa-soccer-ball-o text-primary"></i> Modalities</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="graphics.html"><i
                                 class="fa fa-bar-chart text-primary"></i> Statistics</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="favorites.html"><i
-                                class="fa fa-heart-o text-danger"></i> Favorites</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="aboutus.html"><i
-                                class="fa fa-address-book-o text-danger"></i> About us</a></li>
                 </ul>
-
+                <div class="pe-3"><a class="nav-link" aria-current="page" href="favorites.html"><i
+                            class="fa fa-heart-o text-danger"></i> Favourites</a></div>
+                <div class="Toggler" id="toggler" style="cursor:pointer"> <i class="fa fa-sun-o fa-2x"
+                        aria-hidden="true"></i> </div>
             </div>
+
+        </div>
         </div>
     </nav>
 
@@ -53,7 +54,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-3">
-                    <div class="card-header" style="text-align: center;">
+                    <div class="card-header" style="text-align: center;color:black !important ;  ">
                         Modalities
                     </div>
                     <div class="card-body">
@@ -65,7 +66,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-3">
-                    <div class="card-header" style="text-align: center;">
+                    <div class="card-header" style="text-align: center;color:black !important ;">
                         Athletes
                     </div>
                     <div class="card-body">
@@ -77,16 +78,18 @@
         <div class="medals">
             <div class="col-md-12">
                 <div class="card mt-3">
-                    <div class="card-header" style="text-align: center;">
+                    <div class="card-header" style="text-align: center;color:black !important ;">
                         Medals by country
                     </div>
                     <div class="card-body">
                         <canvas style="height:550px; width:1500px" id="medals"></canvas>
                         <form data-bind="submit: submit">
-                            <label for="minMedalsInput">Minimum number of medals:</label>
+                            <label for="minMedalsInput" style="color:black !important ;">Minimum number of
+                                medals:</label>
                             <input type="number" id="minMedalsInput" name="minMedalsInput" data-bind="value: minMedals">
                             <br>
-                            <label for="maxMedalsInput">Maximum number of medals:</label>
+                            <label for="maxMedalsInput" style="color:black !important ;">Maximum number of
+                                medals:</label>
                             <input type="number" id="maxMedalsInput" name="maxMedalsInput" data-bind="value: maxMedals">
                             <br>
                             <input type="submit" value="Filter">
@@ -108,6 +111,7 @@
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="..\Scripts\graphics.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="../Scripts/myScript.js"></script>
 </body>
 
 </html>
