@@ -166,7 +166,7 @@ function getUrlParameter(sParam) {
 var pg = getUrlParameter("id");
 $.ajax({
   type: "GET",
-  url: "http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=" + 3,
+  url: "http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=" + pg,
   headers: {
     "Content-Type": "application/json",
   },
@@ -193,8 +193,8 @@ function createBarGraph(Counter, CountryName) {
         {
           data: Counter,
           label: "Number of Medals per country in this Olympic Games edition",
-          backgroundColor: ["#D0CB46", "#F294F2"],
-          borderColor: ["#9E9B51", "#C05AC0"],
+          backgroundColor: ["#F1F743", "#F294F2"],
+          borderColor: ["rgba(249, 160, 58, 0.4)", "#C05AC0"],
           borderWidth: 1,
         },
       ],
