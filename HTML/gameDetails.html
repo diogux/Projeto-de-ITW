@@ -49,7 +49,9 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-
+        <div style="width: 400px">
+            <canvas id="myChart"></canvas>
+        </div>
         <div class="py-2 border-bottom mb-3 row">
             <div class="col">
                 <h2 data-bind="text:Title"></h2>
@@ -94,7 +96,7 @@
 
                     </div>
                     <div class="col-6"> <iframe style="width:100%; height: 400px;" class="myFrame"
-                            data-bind="attr:{src:'https://www.google.com/maps/embed/v1/place?key=AIzaSyAJLUALI140YZxYaSh3TN8hedXJEsm+1Bkg&q=' + CountryName() + City()}"></iframe>
+                            data-bind="attr:{src:'https://www.google.com/maps/embed/v1/search?zoom=11&key=AIzaSyAJLUALI140YZxYaSh3TN8hedXJEsm+1Bkg&q=' + Lat() + '+' + Lon()}"></iframe>
                     </div>
                 </div>
 
@@ -394,6 +396,7 @@
         </div>
     </nav>
     <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
     <script src="/lib/knockout/dist/knockout-latest.min.js"></script>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="..\Scripts\gameDetails.js"></script>

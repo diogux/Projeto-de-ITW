@@ -20,12 +20,32 @@
             height: 768px;
             background-color: #aad3df;
         }
+
+        body {
+            overflow: hidden;
+            /* Hide scrollbars */
+        }
     </style>
 </head>
 
 <body>
+    <div class="container">
 
-    <div id="map" style="margin: auto"></div>
+        <div class="row">
+            <div class="pt-2 col"><a href="./games.html" class="btn btn-default btn-sm small border-1"
+                    style="border:1px solid black"><i class="fa fa-list"></i>
+                    Back to Games</a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="map" style="margin: auto;border-radius: 15px;"></div>
+    </div>
 
     <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../lib/knockout/dist/knockout-latest.min.js"></script>

@@ -21,6 +21,8 @@ var vm = function () {
     self.Medals = ko.observableArray([]);
     self.Competitions = ko.observableArray([]);
     self.Modalities = ko.observableArray([]);
+    self.Lat = ko.observable('');
+    self.Lon = ko.observable('');
 
     self.formatSex = function(sex) {
         const iconName = sex == "M" ? "mars" : "venus";
@@ -77,6 +79,8 @@ if (image != null)
             self.Competitions(data.Competitions);
             self.Modalities(data.Modalities);
             self.City(data.City);
+            self.Lat(data.Lat);
+            self.Lon(data.Lon);
             
 
         });

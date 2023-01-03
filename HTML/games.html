@@ -109,23 +109,99 @@
         </div>
 
         <!-- /ko -->
+        <div class="row">
+            <div class="col">
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Season Filter
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a id="summer" data-bind="attr:{href:'./games.html?season=1'}"
+                                class="dropdown-item">Summer</a>
+                        </li>
+                        <li><a id="winter" data-bind="attr:{href:'./games.html?season=2'}"
+                                class="dropdown-item">Winter</a>
+                        </li>
+                    </ul>
 
-        <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Season Filter
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a id="summer" data-bind="attr:{href:'./games.html?season=1'}" class="dropdown-item">Summer</a>
-                </li>
-                <li><a id="winter" data-bind="attr:{href:'./games.html?season=2'}" class="dropdown-item">Winter</a>
-                </li>
-            </ul>
+                </div>
+                <div class="d-none pt-0 ps-1" id="divshow"><a style="text-decoration:none" href="games.html"><span
+                            id="remover" style="color:red"><i class="fa fa-times" aria-hidden="true"></i> Remove
+                            Filter</span></a>
+                </div>
+            </div>
+            <div class="col">
+                <a name="" id="" class="btn btn-warning" href="map.html" role="button">Map w/ All Games</a>
+            </div>
+        </div>
 
-        </div>
-        <div class="d-none pt-0 ps-0" id="divshow"><a style="text-decoration:none" href="games.html"><span id="remover"
-                    style="color:red"><i class="fa fa-times" aria-hidden="true"></i> Remove Filter</span></a>
-        </div>
+
+
+
+
+
+
+
+
+        <script>
+            var modalId = document.getElementById('modalId');
+
+            modalId.addEventListener('show.bs.modal', function (event) {
+                // Button that triggered the modal
+                let button = event.relatedTarget;
+                // Extract info from data-bs-* attributes
+                let recipient = button.getAttribute('data-bs-whatever');
+
+                // Use above variables to manipulate the DOM
+            });
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -265,6 +341,7 @@
     <script src="\lib\jquery-ui\dist\jquery-ui.js"></script>
     <script src="..\Scripts\games.js"></script>
     <script src="..\Scripts\myScript.js"></script>
+    <script src="..\Scripts\.js"></script>
 </body>
 
 </html>
