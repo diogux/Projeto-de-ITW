@@ -1,8 +1,8 @@
-TODO LIST:
+Trabalho Feito por Diogo Fernandes(114137) e José Oliveira(113403).
 
-#- Modalities Details
-#- Favourites (Melhorar)
-#- Filtros
+Algumas das nossas funcionalidades:
 
 
 
+
+Funcionalidades Feitas após dia 3: 
