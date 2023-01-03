@@ -278,6 +278,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div><a name="" id="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalId2"
+                                href="#" role="button">By country</a></div>
                     </div>
                 </div>
             </div>
@@ -289,6 +291,44 @@
 
 
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalId2" tabindex="-1" role="dialog" aria-labelledby="modalTitleId2"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId2">Medals By Country</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+
+
+
+                            <canvas class="mt-4" style="height:80px; width:100px" id="myChart"></canvas>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var modalId = document.getElementById('modalId');
+
+            modalId.addEventListener('show.bs.modal', function (event) {
+                // Button that triggered the modal
+                let button = event.relatedTarget;
+                // Extract info from data-bs-* attributes
+                let recipient = button.getAttribute('data-bs-whatever');
+
+                // Use above variables to manipulate the DOM
+            });
+        </script>
 
 
 
@@ -325,7 +365,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
 
-                        <form action="">
+                        <form name="NewsLetter" action="http://192.168.160.36/FormEcho.aspx" method="post">
                             <div>
                                 <span
                                     style="font-family:'Times New Roman', Times, serif;font-size:24px;text-decoration:underline">
@@ -334,15 +374,15 @@
                             </div>
                             <br>
                             <div class="mb-3">
-                                <label for="" class="form-label">Email Adress</label>
-                                <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
-                                    placeholder="example@gmail.com" required>
+                                <label for="mail" class="form-label">Email Adress</label>
+                                <input type="email" class="form-control" name="Email" id="mail"
+                                    aria-describedby="emailHelpId" placeholder="example@gmail.com" required>
                             </div>
                             <div class="mb-3">
 
                                 <label for="validationDefault01" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="validationDefault01" value=""
-                                    placeholder="Insert your name" required>
+                                <input type="text" name="FirstName" class="form-control" id="validationDefault01"
+                                    value="" placeholder="Insert your name" required>
                             </div>
                             <p style="height:30px;text-align:center;padding-bottom:0">
                                 <button type="submit" id="Subscribe" class="btn btn-lg btn-dark">Subscribe</button>
@@ -394,7 +434,7 @@
         </div>
     </nav>
     <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/lib/knockout/dist/knockout-latest.min.js"></script>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="..\Scripts\gameDetails.js"></script>
