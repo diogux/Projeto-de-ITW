@@ -1,6 +1,6 @@
 # ITW Olympics Project
 
-This project, created by @diogux and @TKahk, is a web application developed for "Introdução às Tecnologias Web" in our first year in University.
+This project, created by [myself](https://github.com/diogux)(114137) and [@TKahk](https://github.com/TKahk)(113403), is a web application developed for "Introdução às Tecnologias Web" in our first year in University.
 
 ## Features
 
